@@ -1,3 +1,3 @@
-public abstract class Account implements UserInfo {
+public class Account implements UserInfo {
 
 }
