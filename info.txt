@@ -1,4 +1,4 @@
-davis cat Mr. Cuddles male 8 111110101101 (URL)
+davis cat Mr._Cuddles male 8 111110101101 (URL)
 kai cat Mittens female 2 000111001100 (URL)
 dr.elva hamster Chickpea female 1 110111110110 (URL)
 dr.elva cat Malon male 1 101111111110 (URL)
