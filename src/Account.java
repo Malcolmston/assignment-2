@@ -3,8 +3,6 @@ public class Account implements UserInfo {
     private Animal[] pets;
     private int numPets;
 
-    Account () {}
-
     Account(String name, String username, int numPets, Animal[] pets) {
         this.name = name;
         this.username = username;
