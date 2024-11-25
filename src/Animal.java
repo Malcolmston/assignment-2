@@ -10,8 +10,10 @@ public abstract class Animal {
 
    }   
 
-    Animal(String name) {
+    Animal(String name, String gender, int age) {
          this.name = name;
+         this.gender = gender;
+         this.age = age;
     }
 
     public String getName() {
