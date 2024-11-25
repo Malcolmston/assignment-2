@@ -11,9 +11,9 @@ public class Dog extends Animal {
 	
 	}
 	//Does not like the vet
-	public String friendly() {
-		return super.getName() + " is very loving and great with people";
-	}
+    public String friendly() {
+	return super.getName() + " is very loving and great with people";
+    }
     public String running() {
     	return super.getName() + "loves to run around in the park on sunny days";
     }
