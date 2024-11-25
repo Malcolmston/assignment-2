@@ -1,5 +1,4 @@
 public class Account implements UserInfo {
-    private String name;
     private String username;
     private Animal[] pets;
 
