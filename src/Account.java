@@ -1,12 +1,15 @@
 public class Account implements UserInfo {
     private String username;
     private Animal[] pets;
+    private int numPets;
 
     Account () {}
 
-    Account(String name, String username) {
+    Account(String name, String username, int numPets, Animal[] pets) {
         this.name = name;
         this.username = username;
+        this.numPets = numPets;
+        this.pets = pets;
     }
 
     public String getName() {
@@ -33,8 +36,16 @@ public class Account implements UserInfo {
         this.username = username;
     }
 
-    public void addPet(Animal pet) {}
+    public int getNumPets() {
+        return numPets;
+    }
 
-    public Animal getPet(int index) {}
+    public void setNumPets(int newNum) {
+        this.numPets = newNum;
+    }
+
+    public Animal getPet(int index) {
+        return pets[index];
+    }
 
 }
