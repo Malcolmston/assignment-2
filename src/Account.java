@@ -1,3 +1,12 @@
+//*
+* CMS270 Group Project
+* Version 1
+* Jarod Fuentes, Ava Kopchak, Alex Rynott, Malcolm Stone
+*
+* Account class
+* Purpose: To create User objects that hold account and pet information.
+*/
+
 public class Account implements UserInfo {
     private String username;
     private Animal[] pets;
