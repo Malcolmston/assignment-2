@@ -1,22 +1,24 @@
-
 public abstract class Animal {
+	//Data Members
 	private String name;
 	String fullPath;
 	boolean[] flags = new boolean[11];
 
 	String gender;
 	int age;
-
+	
+	// Constructor
 	Animal(String name, String gender, int age) {
 		this.name = name;
 		this.gender = gender;
 		this.age = age;
 	}
-
+	
+	// Getters and Setters
 	public String getName() {
 		return name;
 	}
-
+	
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -53,41 +55,53 @@ public abstract class Animal {
 		this.fullPath = fullPath;
 	}
 	
+	// toString Methods
 	public String adventurous() {
-		return this.name + "likes going on advetures.";
+		return this.name + " likes going on advetures.";
 	}
+
 	public String baths() {
-		return this.name + "likes taking baths.";
+		return this.name + " likes taking baths.";
 	}
+
 	public String cars() {
-		return this.name + "likes going on car rides.";
+		return this.name + " likes going on car rides.";
 	}
+
 	public String cosplay() {
-		return this.name + "likes to cosplay.";
+		return this.name + " likes to cosplay.";
 	}
+
 	public String eating() {
-		return this.name + "likes eating.";
+		return this.name + " likes eating.";
 	}
+
 	public String energy() {
-		return this.name + "has lots of energy.";
+		return this.name + " has lots of energy.";
 	}
+
 	public String friendly() {
-    		return this.name + "is very friendly.";
-    	}
- 	public String running() {
-    		return this.name + "loves to run.";
-    	}
-    	public String sleeping() {
-    		return this.name + "loves to sleep.";
-    	}
-    	public String petting() {
-    		return this.name + "loves to be pet.";
-    	}
-    	public String playing() {
-    		return this.name + "loves to play.";
-    	}
-    	public String walks() {
-    		return this.name + "loves to go on walks.";
-	
+		return this.name + " is very friendly.";
+	}
+
+	public String running() {
+		return this.name + " likes to run.";
+	}
+
+	public String sleeping() {
+		return this.name + " likes to sleep.";
+	}
+
+	public String petting() {
+		return this.name + " likes to be pet.";
+	}
+
+	public String playing() {
+		return this.name + " likes to play.";
+	}
+
+	public String walks() {
+    		return this.name + " likes to go on walks.";
+	}
 	
 }
