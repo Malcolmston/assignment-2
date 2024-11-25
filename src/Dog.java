@@ -2,10 +2,8 @@
 public class Dog extends Animal {
 	public static final String Species = "Dog";
 	
-	public Dog(String n, int age, String gender) {
-		super.setName(n);
-		super.setAge(age);
-		super.setGender(gender);
+  public Dog (String name, String gender, int age) {
+    super(name, gender, age);
 		
 	Dog n1 = new Dog(n, age, gender);
 	
