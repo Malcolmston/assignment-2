@@ -9,13 +9,13 @@ public class Hamster extends Animal {
 	public String getSpecies() {
 		return this.species;
 	}
+
+	public String adventurous() {
+		return super.getName() + " loves exploring places in the home.";
+	}
 	
 	public String running() {
 		return super.getName() + " loves running on the hamster wheel.";
-	}
-	
-	public String adventurous() {
-		return super.getName() + " loves exploring places in the home.";
 	}
 	
 }
