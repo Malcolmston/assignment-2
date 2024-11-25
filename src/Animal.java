@@ -1,3 +1,13 @@
+//*
+* CMS270 Group Project
+* Version 1
+* Jarod Fuentes, Ava Kopchak, Alex Rynott, Malcolm Stone
+*
+* Animal abstract class
+* Purpose: To create a framework for creating Animal objects. The Animal type will be used
+* to store different pets in an array together.
+*/
+
 public abstract class Animal {
 	//Data Members
 	private String name;
