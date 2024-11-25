@@ -1,58 +1,61 @@
+
 public abstract class Animal {
-    private String name;
-    String fullPath;
-    boolean[] flags = new boolean[11];
+	private String name;
+	String fullPath;
+	boolean[] flags = new boolean[11];
 
-   String gender;
-   int age;
+	String gender;
+	int age;
 
-   Animal () {
+	Animal(String name, String gender, int age) {
+		this.name = name;
+		this.gender = gender;
+		this.age = age;
+	}
 
-   }   
+	public String getName() {
+		return name;
+	}
 
-    Animal(String name, String gender, int age) {
-         this.name = name;
-         this.gender = gender;
-         this.age = age;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public boolean[] getFlags() {
+		return flags;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setFlags(boolean[] flags) {
+		this.flags = flags;
+	}
 
-    public boolean[] getFlags() {
-        return flags;
-    }
+	public String getGender() {
+		return gender;
+	}
 
-    public void setFlags(boolean[] flags) {
-        this.flags = flags;
-    }
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 
-    public String getGender() {
-        return gender;
-    }
+	public int getAge() {
+		return age;
+	}
 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
+	public void setAge(int age) {
+		this.age = age;
+	}
 
-    public int getAge() {
-        return age;
-    }
+	public String getFullPath() {
+		return fullPath;
+	}
 
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getFullPath() {
-        return fullPath;
-    }
-
-    public void setFullPath(String fullPath) {
-        this.fullPath = fullPath;
-    }
+	public void setFullPath(String fullPath) {
+		this.fullPath = fullPath;
+	}
+	
+	public String adventurous() {
+		return this.name + "likes going on advetures.";
+	}
+	
+	
 }
