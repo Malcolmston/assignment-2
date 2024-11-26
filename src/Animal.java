@@ -1,4 +1,4 @@
-//*
+/**
 * CMS270 Group Project
 * Version 1
 * Jarod Fuentes, Ava Kopchak, Alex Rynott, Malcolm Stone
