@@ -1,4 +1,4 @@
-//*
+/**
 * CMS270 Group Project
 * Version 1
 * Jarod Fuentes, Ava Kopchak, Alex Rynott, Malcolm Stone
@@ -12,21 +12,12 @@ public class Account implements UserInfo {
     private Animal[] pets;
     private int numPets;
 
-    Account(String name, String username, int numPets, Animal[] pets) {
-        this.name = name;
+    Account(String username, int numPets, Animal[] pets) {
         this.username = username;
         this.numPets = numPets;
         this.pets = pets;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
+    
     public Animal[] getPets() {
         return pets;
     }
