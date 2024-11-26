@@ -46,4 +46,16 @@ public class Account implements UserInfo {
         return pets[index];
     }
 
+    @Override
+    public void changeName(String newName) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'changeName'");
+    }
+
+    @Override
+    public void makeProfile() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'makeProfile'");
+    }
+
 }
