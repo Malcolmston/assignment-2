@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -150,7 +149,7 @@ public final class FileReader {
         return animals;
     }
     
-    private static Account parseAccount( String[][] data, String username, Animal[] animals) {
+    private static Account parseAccount( String username, Animal[] animals) {
         return new Account(username, animals.length, animals);
     }
 
@@ -164,7 +163,7 @@ public final class FileReader {
 
             Animal[] animalArr = a.toArray(Animal[]::new);
 
-            accounts.add( parseAccount(arr, username, animalArr) );
+            accounts.add( parseAccount(username, animalArr) );
         });
 
         return accounts;
