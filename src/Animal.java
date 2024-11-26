@@ -18,12 +18,6 @@ public abstract class Animal {
 	int age;
 	
 	// Constructor
-	Animal(String name, String gender, int age)  {
-		this.name = name;
-		this.gender = gender;
-		this.age = age;
-	}
-
 
 	Animal(String name, String gender, int age, boolean[] flags)  {
 		this.name = name;
