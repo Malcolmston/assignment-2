@@ -11,18 +11,27 @@
 public abstract class Animal {
 	//Data Members
 	private String name;
-	String fullPath;
-	boolean[] flags = new boolean[11];
+	private String fullPath;
+	private boolean[] flags = new boolean[11];
 
 	String gender;
 	int age;
 	
 	// Constructor
-	Animal(String name, String gender, int age) {
+	Animal(String name, String gender, int age)  {
 		this.name = name;
 		this.gender = gender;
 		this.age = age;
 	}
+
+
+	Animal(String name, String gender, int age, boolean[] flags)  {
+		this.name = name;
+		this.gender = gender;
+		this.age = age;
+		this.flags = flags;
+	}
+
 	
 	// Getters and Setters
 	public String getName() {
