@@ -13,22 +13,22 @@ public class Dog extends Animal {
 	//Does not like the vet
     @Override
     public String friendly() {
-	return super.getName() + " is very loving and great with people";
+	return super.getName() + " is " + (this.getFlags()[6] ? "" : "not") +" very loving and great with people";
     }
 
     @Override
     public String running() {
-    	return super.getName() + "loves to run around in the park on sunny days";
+    	return super.getName() + " "+ (this.getFlags()[8] ? "loves" : "hates") + " to run around in the park on sunny days";
     }
 
     @Override
     public String petting() {
-    	return super.getName() + "loves belly rubs and likes to be pet by people";
+    	return super.getName() +" "+ (this.getFlags()[9] ? "loves" : "dose not like") + " belly rubs and likes to be pet by people";
     }
 
     @Override
     public String playing() {
-    	return super.getName() + "likes to play fetch with sticks from outside";
+    	return super.getName() + " " + (this.getFlags()[10] ? "likes" : "dose not like") + "to play fetch with sticks from outside";
     }
 	
 }
