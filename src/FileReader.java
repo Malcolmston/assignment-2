@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-
 public final class FileReader {
     private static final String FILE_NAME = "info.txt";
     
@@ -81,7 +80,7 @@ public final class FileReader {
 
     /**
      * Find all of a certain name in a 3d array
-     * @param data the 3d array to search
+     * @param data the 2d array to search
      * @param name the person to search for
      * @return an list of all the lines that contain the name
      */
@@ -149,10 +148,21 @@ public final class FileReader {
         return animals;
     }
     
+    /**
+     * Parse an account from a username and an array of animals
+     * @param username the username of the account
+     * @param animals the animals in the account
+     * @return an account object
+     */
     private static Account parseAccount( String username, Animal[] animals) {
         return new Account(username, animals.length, animals);
     }
 
+    /**
+     * Parse a 2d array into an arraylist of accounts
+     * @param arr the 2d array to parse
+     * @return an arraylist of accounts
+     */
     public static ArrayList<Account> parse (String[][] arr) {
         ArrayList<Account> accounts = new ArrayList<>();
 
