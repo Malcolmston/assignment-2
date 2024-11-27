@@ -8,19 +8,19 @@ public class Cat extends Animal {
   // getters
   @Override
     public String playing() {
-    	return super.getName() + "loves to scratch up old boxes.";
+    	return super.getName() + " " + (this.getFlags()[10] ? "likes" : "dose not like") + " to scratch up old boxes.";
     }
     @Override
     public String baths() {
-		  return super.getName() + "HATES taking baths.";
+		  return super.getName() + " " + (this.getFlags()[1] ? "likes" : "HATES") +  " taking baths.";
 	}
   @Override
     public String eating() {
-		  return super.getName() + "loves eating more than anything in the world.";
+		  return super.getName() + (this.getFlags()[4] ? "loves eating more than anything in the world." : "dose not like eating");
 	}
   @Override
     public String sleeping() {
-		  return super.getName() + "likes to nap around the house all day.";
+		  return super.getName() + (this.getFlags()[8] ? "likes" : "dose not like") +" to nap around the house all day.";
 	}
   public String getSpecies() {
     return Cat.SPECIES;
