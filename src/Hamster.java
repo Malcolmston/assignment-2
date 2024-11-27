@@ -1,9 +1,12 @@
 public class Hamster extends Animal {
 	
 	private static final String SPECIES = "Hamster";
-	
-	public Hamster (String name, String gender, int age, boolean[] flags){
+	private String url;
+
+
+	public Hamster (String name, String gender, int age, boolean[] flags, String url){
 		super(name,gender,age, flags);
+		this.url = url;
 	}
 
 	public String getSpecies() {
@@ -18,6 +21,14 @@ public class Hamster extends Animal {
 	@Override
 	public String running() {
 		return super.getName() + " " +(this.getFlags()[7] ? "loves" : "dose not like") + " running on the hamster wheel.";
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 	
 }

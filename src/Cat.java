@@ -1,8 +1,11 @@
 public class Cat extends Animal {
   private static final String SPECIES = "Cat";
 
-  public Cat(String name, String gender, int age, boolean[] flags) {
+  private String url;
+
+  public Cat(String name, String gender, int age, boolean[] flags, String url) {
     super(name, gender, age, flags);
+    this.url = url;
   }
 
   // getters
@@ -30,5 +33,13 @@ public class Cat extends Animal {
   public String getSpecies() {
     return Cat.SPECIES;
   }
+
+  public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
 
 }

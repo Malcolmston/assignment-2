@@ -1,9 +1,11 @@
 
 public class Dog extends Animal {
 	public static final String SPECIES = "Dog";
-	
-  public Dog (String name, String gender, int age, boolean[] flags) {
+    private String url;
+
+  public Dog (String name, String gender, int age, boolean[] flags, String url) {
     super(name, gender, age, flags);
+    this.url = url;
     }
 
     public String getSpecies () {
@@ -30,5 +32,13 @@ public class Dog extends Animal {
     public String playing() {
     	return super.getName() + " " + (this.getFlags()[10] ? "likes" : "dose not like") + "to play fetch with sticks from outside";
     }
+
+    public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
 	
 }
