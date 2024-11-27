@@ -14,7 +14,7 @@ public final class FileReader {
     } 
 
     /**
-     * read a line from the file; and return the sets
+     * read a line from the file; and return the line as an array of strings
      */
     private static String[] readLine(Scanner scanner) {
             String line = scanner.nextLine();
@@ -44,7 +44,7 @@ public final class FileReader {
      * @param arrayList the arraylist to remove duplicates from
      * @return a cleaned arraylist without duplicates;
      */
-    private static ArrayList<String> removeDupleacArrayList (ArrayList<String> arrayList) {
+    private static ArrayList<String> removeDuplicateArrayList (ArrayList<String> arrayList) {
         ArrayList<String> out = new ArrayList<>();
 
         for (String s : arrayList) {
@@ -110,7 +110,7 @@ public final class FileReader {
             accounts.add(line[0]);
         }
 
-        return removeDupleacArrayList(accounts);
+        return removeDuplicateArrayList(accounts);
 
     }
 
@@ -130,12 +130,13 @@ public final class FileReader {
                 String gender = line[3];       // "male" or "female"
                 int age = Integer.parseInt(line[4]); // Age (must be an integer)
                 boolean[] flags = parseFlags(line[5]); // Flags (binary string)
-    
+                String url = line[6];       // URL (can be empty)
+
                 switch (type) {
-                    case "cat" -> animals.add(new Cat(name, gender, age, flags));
-                    case "dog" -> animals.add(new Dog(name, gender, age, flags));
-                    case "hamster" -> animals.add(new Hamster(name, gender, age, flags));
-                    case "monster" -> animals.add(new Monster(name, gender, age, flags));
+                    case "cat" -> animals.add(new Cat(name, gender, age, flags,url));
+                    case "dog" -> animals.add(new Dog(name, gender, age, flags,url));
+                    case "hamster" -> animals.add(new Hamster(name, gender, age, flags,url));
+                    case "monster" -> animals.add(new Monster(name, gender, age, flags,url));
                     default -> System.err.println("Unknown animal type: " + type);
                 }
             } catch (NumberFormatException e) {
@@ -179,8 +180,6 @@ public final class FileReader {
         return accounts;
 
     }
-
-    
 
     public static void main(String[] args) {
         try (Scanner scanner = getScanner()) {
