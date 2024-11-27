@@ -11,15 +11,15 @@ public class Monster extends Animal{
 	
 	@Override
 	public String adventurous() {
-		return super.getName() + " loves exploring abandoned places.";
+		return super.getName() + " "+ (this.getFlags()[0] ? "loves" : "dose not like") + "  exploring abandoned places.";
 	}
 	@Override
 	public String running() {
-		return super.getName() + " loves chasing after people";
+		return super.getName() + " " + (this.getFlags()[7] ? "loves" : "dose not like") + " chasing after people";
 	}
 	@Override
 	public String playing() {
-		return super.getName() + " loves to play games like Hide-in-Seek.";
+		return super.getName() + " " + (this.getFlags()[10] ? "loves" : "dose not like") +"  to play games like Hide-in-Seek.";
 	}
 	
 	
