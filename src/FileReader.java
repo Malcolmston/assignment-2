@@ -1,8 +1,8 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
-import java.util.ArrayList;
 
 
 public final class FileReader {
@@ -46,7 +46,7 @@ public final class FileReader {
      * @return a cleaned arraylist without duplicates;
      */
     private static ArrayList<String> removeDupleacArrayList (ArrayList<String> arrayList) {
-        ArrayList<String> out = new ArrayList<String>();
+        ArrayList<String> out = new ArrayList<>();
 
         for (String s : arrayList) {
             if (!out.contains(s)) {
