@@ -12,12 +12,12 @@ public class Hamster extends Animal {
 
 	@Override
 	public String adventurous() {
-		return super.getName() + " loves exploring places in the home.";
+		return super.getName() + " " + (this.getFlags()[0] ? "loves" : "dose not like" ) + " exploring places in the home.";
 	}
 
 	@Override
 	public String running() {
-		return super.getName() + " loves running on the hamster wheel.";
+		return super.getName() + " " +(this.getFlags()[7] ? "loves" : "dose not like") + " running on the hamster wheel.";
 	}
 	
 }
