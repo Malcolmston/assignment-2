@@ -1,3 +1,6 @@
+
+import javax.swing.JPanel;
+
 /**
  * CMS270 Group Project
  * @version 1.0.0
@@ -8,5 +11,5 @@
 public interface UserInfo {
     public void changeName(String newName);
 
-    public void makeProfile();
+    public JPanel makeProfile();
 }

@@ -1,3 +1,6 @@
+
+import javax.swing.JPanel;
+
  /**
  * CMS270 Group Project
  * @version 1.0.0
@@ -65,8 +68,7 @@ public abstract class Animal implements UserInfo {
 		this.fullPath = fullPath;
 	}
 
-	// toString Methods
-
+	//Methods
 	public String adventurous() {
 		return this.name + " " + (this.flags[0] ? "likes" : "dose not like") + " going on advetures.";
 	}
@@ -117,12 +119,11 @@ public abstract class Animal implements UserInfo {
 
 	@Override
 	public void changeName(String newName) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'changeName'");
+		this.name = newName;
 	}
 
 	@Override
-	public void makeProfile() {
+	public JPanel makeProfile() {
 		// TODO Auto-generated method stub
 		throw new UnsupportedOperationException("Unimplemented method 'makeProfile'");
 	}

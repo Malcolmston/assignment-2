@@ -1,3 +1,6 @@
+
+import javax.swing.JPanel;
+
 /**
  * CMS270 Group Project
  * @version 1.0.0
@@ -51,7 +54,7 @@ public class Account implements UserInfo {
     }
 
     @Override
-    public void makeProfile() {
+    public JPanel makeProfile() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'makeProfile'");
     }
