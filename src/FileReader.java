@@ -119,7 +119,7 @@ public final class FileReader {
      * @param data the 2d array to parse
      * @return an arraylist of animals
      */
-    private static ArrayList<Animal> parseAnimals(String[][] data) {
+    public static ArrayList<Animal> parseAnimals(String[][] data) {
         ArrayList<Animal> animals = new ArrayList<>();
     
         for (String[] line : data) {
