@@ -8,7 +8,7 @@ public final class FileReader {
     private static final String FILE_NAME = "info.txt";
     
 
-    private static Scanner getScanner () throws FileNotFoundException {
+    public static Scanner getScanner () throws FileNotFoundException {
         File f = new File(FILE_NAME);
         return new Scanner(f);
     } 
