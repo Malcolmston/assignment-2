@@ -69,6 +69,62 @@ public abstract class Animal implements UserInfo {
 	}
 
 	//Methods
+	/**
+	 * Calculate compatability of two Animals by comparing their flags
+	 * (also comparing age and gender, if the user wishes)
+	 * @param userPet the user's pet
+	 * @param animals complete list of animals in the database
+	 * @param discriminateAge whether the user wishes to compare ages
+	 * @param discriminateGender whether the user wishes to compare gender
+	 * @return the number of points scored for compatibility
+	 */
+	public static ArrayList<Integer> computeCompatibility(Animal userPet, ArrayList<Animal> animals, boolean discriminateAge, boolean discriminateGender) {
+		int points;
+		for(int i = 0; i < animals.size(); i++) {
+			Animal compare = animals.get(i);
+			points = compareFlags(userPet, compare);
+			if (userPet.getType() == compare.getType()) {
+				points += 2;
+			}	
+			if (discriminateAge) {
+				int addPoints = 10;
+				int ageDiff = userPet.getAge() - compare.getAge();
+				if (ageDiff < 0) {
+					addPoints += ageDiff;
+				}
+				else {
+					addPoints -= ageDiff;
+				}
+				points += addPoints;
+			}
+			if (discriminateGender) {
+				if(userPet.getGender() == compare.getGender()) {
+					points += 5;
+				}	
+			}	
+		}	
+			
+	}
+	
+	/**
+	 * Compare the flag list between two pets
+	 * @param userPet the user's pet
+	 * @param comparePet the pet userPet is being compared against
+	 * @return the number of points scored for base flag compatibility
+	 */
+	public int compareFlags(Animal userPet, Animal comparePet) {
+		int points = 0;
+		for(int i = 0; i < userPet.getFlags().length(); i++) {
+			int[] userFlags = userPet.getFlags();
+			int[] compareFlags = comparePet.getFlags();
+
+			if(userFlags[i] == compareFlags[i]) {
+				points += 1;
+		}	
+		return points;
+	}
+
+	
 	public String adventurous() {
 		return this.name + " " + (this.flags[0] ? "likes" : "dose not like") + " going on advetures.";
 	}
