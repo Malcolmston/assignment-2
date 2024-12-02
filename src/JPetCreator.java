@@ -111,7 +111,7 @@ public class JPetCreator extends JPanel implements ActionListener, ItemListener 
      * @param height the desired height
      * @return an ImageIcon object that has been scaled to the desired width and height
      */
-    private static ImageIcon createImageIcon(String path, int width, int height) {
+    public static ImageIcon createImageIcon(String path, int width, int height) {
         ImageIcon imageIcon = new ImageIcon(path); // load the image to a imageIcon
         Image image = imageIcon.getImage(); // transform it 
         Image newimg = image.getScaledInstance(width, height,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
@@ -127,7 +127,7 @@ public class JPetCreator extends JPanel implements ActionListener, ItemListener 
      * @param height the desired height
      * @return an ImageIcon object that has
      */
-    private static ImageIcon createImageIcon(URL path, int width, int height) {
+    public static ImageIcon createImageIcon(URL path, int width, int height) {
         ImageIcon imageIcon = new ImageIcon(path); // load the image to a imageIcon
         Image image = imageIcon.getImage(); // transform it 
         Image newimg = image.getScaledInstance(width, height,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
@@ -136,15 +136,6 @@ public class JPetCreator extends JPanel implements ActionListener, ItemListener 
         return imageIcon;
     }
 
-
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("JPetCreator");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 400);
-
-        frame.add(new JPetCreator());
-        frame.setVisible(true);
-    }
 
     @Override
     public final void actionPerformed(ActionEvent e) {
@@ -157,6 +148,15 @@ public class JPetCreator extends JPanel implements ActionListener, ItemListener 
          if (e.getSource() == speciesField) {
             System.out.println( speciesField.getSelectedItem() );
         } 
+    }
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("JPetCreator");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 400);
+
+        frame.add(new JPetCreator());
+        frame.setVisible(true);
     }
 
 }
