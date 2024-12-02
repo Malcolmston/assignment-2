@@ -59,7 +59,7 @@ public final class FileReader {
 
 
     /** 
-     * takes a tring of 11 1s and 0s and returns a boolean array
+     * takes a string of 11 1s and 0s and returns a boolean array
      * @param flags the string of 1s and 0s
      * @return a boolean array of the flags where 1 is true and 0 is false
      */
@@ -82,7 +82,7 @@ public final class FileReader {
      * Find all of a certain name in a 3d array
      * @param data the 2d array to search
      * @param name the person to search for
-     * @return an list of all the lines that contain the name
+     * @return a list of all the lines that contain the name
      */
     public static String[][] findAllOf(String[][] data, String name) {
         String[][] out = new String[0][0];
