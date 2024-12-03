@@ -74,13 +74,9 @@ public class JPet extends JPanel {
 
         setLayout(new GridLayout(1, 2));
 
-        int a = JPet.getRandom(1, 11);
-        int b = JPet.getRandom(1, 11);
-        int c = JPet.getRandom(1, 11);
-
-        lblA = getLabelOut(a, petA, petB);
-        lblB = getLabelOut(b, petA, petB);
-        lblC = getLabelOut(c, petA, petB);
+        lblA = getLabelOut(petA, petB);
+        lblB = getLabelOut(petA, petB);
+        lblC = getLabelOut(petA, petB);
 
         panelA.setLayout(new GridLayout(6, 1));
 
@@ -102,8 +98,15 @@ public class JPet extends JPanel {
         
     }
 
-    public final JLabel getLabelOut (int randVal, Animal a, Animal b) {
-        return new JLabel( JPet.getValidFlags(a,b).get(randVal) );
+    public final JLabel getLabelOut ( Animal a, Animal b) {
+        ArrayList<String> poss = JPet.getValidFlags(a,b);
+        if (poss.isEmpty()) {
+            return new JLabel("No common interests");
+        } else {
+            int randVal = JPet.getRandom(0, poss.size() - 1);
+
+            return new JLabel(poss.get(randVal));
+        }
     }
 
     public static void main(String[] args) {
