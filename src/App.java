@@ -1,20 +1,26 @@
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+
+import javax.swing.JFrame;
+
 
 
 public class App {
+
+
 public static void main(String[] args) {
-        try (Scanner scanner = FileReader.getScanner()) {
+    
+    boolean[] flags = {true, false, true, false, true, false, true, false, true, false, true, false};
 
-                String[][] arr = FileReader.readFile(scanner);
+
+    Animal pet = new Cat("Buddy", "male", 3, flags, "");
 
 
-               System.out.println( FileReader.parse(arr) );
-            
+    JPetFull jpf = new JPetFull(pet);
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+    JFrame frame = new JFrame("JPetFull");
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.add(jpf);
+    frame.setSize(800, 600);
+    frame.setVisible(true);
 
 
     }
