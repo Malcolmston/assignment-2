@@ -80,7 +80,7 @@ public abstract class Animal implements UserInfo {
 	 * @param comparePet the pet userPet is being compared against
 	 * @return the number of points scored for base flag compatibility
 	 */
-	private  static int compareFlags(Animal userPet, Animal comparePet) {
+	private static int compareFlags(Animal userPet, Animal comparePet) {
 		int points = 0;
 		for (int i = 0; i < userPet.getFlags().length; i++) {
 			boolean[] userFlags = userPet.getFlags();
@@ -145,8 +145,7 @@ public abstract class Animal implements UserInfo {
 	 * @param comparePet the pet userPet is being compared against
 	 * @return the number of points scored for base flag compatibility
 	 */
-	public static ArrayList<Integer> computeCompatibility(Animal userPet, boolean discriminateAge,
-			boolean discriminateGender, ArrayList<Animal> animals) {
+	public static ArrayList<Integer> computeCompatibility(Animal userPet, boolean discriminateAge, boolean discriminateGender, ArrayList<Animal> animals) {
 		ArrayList<Integer> points = new ArrayList<>();
 		for (int i = 0; i < animals.size(); i++) {
 			points.add(compareOnePet(userPet, animals.get(i), discriminateAge, discriminateGender));
