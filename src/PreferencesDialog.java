@@ -6,7 +6,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 
-public class Popup extends JDialog {
+public class PreferencesDialog extends JDialog {
     private boolean dicAge = true;
     private boolean dicGender = true;
 
@@ -22,7 +22,7 @@ public class Popup extends JDialog {
     private CloseListener listener;
 
 
-    public Popup() {
+    public PreferencesDialog() {
         // Set dialog properties
         setTitle("Preferences");
 
