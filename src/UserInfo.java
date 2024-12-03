@@ -12,4 +12,5 @@ public interface UserInfo {
     public void changeName(String newName);
 
     public JPanel makeProfile();
+
 }
