@@ -17,7 +17,7 @@ public class App {
 
         jp.setCreateListener(pet -> {
             // Show Popup
-            Popup popup = new Popup();
+            PreferencesDialog popup = new PreferencesDialog();
             popup.setCloseListener((dicAge, dicGender) -> {
                 System.out.println("DicAge: " + dicAge + ", DicGender: " + dicGender);
 
