@@ -2,7 +2,6 @@ import java.awt.GridLayout;
 import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
@@ -143,22 +142,5 @@ public class JPet extends JPanel {
 
         setBorder(BORDER);
 
-    }
-
-    
-
-    public static void main(String[] args) {
-        boolean[] flags = {true, false, true, false, true, false, true, false, true, false, true, false};
-
-        Animal pet = new Cat("Buddy", "male", 3, flags, "");
-        Animal pet2 = new Cat("Bella", "female", 2, flags, "dog.jpeg");
-
-        JPet jPet = new JPet(pet, pet2);
-
-        JFrame frame = new JFrame("JPet");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1000, 400);
-        frame.add(jPet);
-        frame.setVisible(true);
     }
 }
