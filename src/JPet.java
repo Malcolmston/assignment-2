@@ -1,5 +1,6 @@
 
 import java.awt.GridLayout;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,8 +17,46 @@ public class JPet extends JPanel {
 
     private final JPanel panelA = new JPanel();
 
-    private ImageIcon lblTitle = JPetCreator.createImageIcon("./dog.jpeg", 400, 400);
+    private ImageIcon lblTitle;
 
+    private static ArrayList<String> getValidFlags (Animal a, Animal b) {
+        ArrayList<String> validFlags = new ArrayList<String>();
+        
+        for (int i = 0; i < a.getFlags().length; i++) {
+            if (a.getFlags()[i] && b.getFlags()[i]) {
+                String s = switch (i) {
+                    case 1 ->  String.format("The pet %s and pet %s were both %s", a.getName(), b.getName(),
+                                a.adventurous());
+                    case 2 -> String.format("The pet %s and pet %s were both %s", a.getName(), b.getName(),
+                                a.baths());
+                    case 3 -> String.format("The pet %s and pet %s were both %s", a.getName(), b.getName(),
+                                a.cars());
+
+                    case 4 -> String.format("The pet %s and pet %s were both %s", a.getName(), b.getName(),
+                                a.cosplay());
+                    case 5 -> String.format("The pet %s and pet %s were both %s", a.getName(), b.getName(),
+                                a.eating());
+                    case 6 -> String.format("The pet %s and pet %s were both %s", a.getName(), b.getName(),
+                                a.energy());
+                    case 7 -> String.format("The pet %s and pet %s were both %s", a.getName(), b.getName(),
+                                a.friendly());
+                    case 8 -> String.format("The pet %s and pet %s were both %s", a.getName(), b.getName(),
+                                a.running());
+                    case 9 -> String.format("The pet %s and pet %s were both %s", a.getName(), b.getName(),
+                                a.sleeping());
+                    case 10 -> String.format("The pet %s and pet %s were both %s", a.getName(), b.getName(),
+                                a.playing());
+                    case 11 -> String.format("The pet %s and pet %s were both %s", a.getName(), b.getName(),
+                                a.walks());
+                    default -> "";
+                };
+                validFlags.add(s);
+               
+            }
+        }
+
+        return validFlags;
+    }
 
     private static int getRandom(int min, int max) {
         return (int) (Math.random() * (max - min + 1)) + min;
@@ -29,6 +68,8 @@ public class JPet extends JPanel {
         lblName = new JLabel(petB.getName());
         lblAge = new JLabel("Age " + String.valueOf(petB.getAge()));
         lblGender = new JLabel("Gender " + petB.getGender());
+
+        lblTitle = JPetCreator.createImageIcon(petB.getUrl(), 400, 400);
 
 
         setLayout(new GridLayout(1, 2));
@@ -62,57 +103,7 @@ public class JPet extends JPanel {
     }
 
     public final JLabel getLabelOut (int randVal, Animal a, Animal b) {
-        String f = "";
-
-        switch (randVal) {
-            case 1:
-                f = String.format("The pet %s and pet %s were both %s", a.getName(), b.getName(),
-                        a.adventurous());
-                break;
-            case 2:
-                f = String.format("The pet %s and pet %s were both %s", a.getName(), b.getName(),
-                        a.baths());
-                break;
-            case 3:
-                f = String.format("The pet %s and pet %s were both %s", a.getName(), b.getName(),
-                        a.cars());
-                break;
-            case 4:
-                f = String.format("The pet %s and pet %s were both %s", a.getName(), b.getName(),
-                        a.cosplay());
-                break;
-            case 5:
-                f = String.format("The pet %s and pet %s were both %s", a.getName(), b.getName(),
-                        a.eating());
-                break;
-            case 6:
-                f = String.format("The pet %s and pet %s were both %s", a.getName(), b.getName(),
-                        a.energy());
-                break;
-            case 7:
-                f = String.format("The pet %s and pet %s were both %s", a.getName(), b.getName(),
-                        a.friendly());
-                break;
-            case 8:
-                f = String.format("The pet %s and pet %s were both %s", a.getName(), b.getName(),
-                        a.running());
-                break;
-            case 9:
-                f = String.format("The pet %s and pet %s were both %s", a.getName(), b.getName(),
-                        a.sleeping());
-                break;
-            case 10:
-                f = String.format("The pet %s and pet %s were both %s", a.getName(), b.getName(),
-                        a.playing());
-                break;
-            case 11:
-                f = String.format("The pet %s and pet %s were both %s", a.getName(), b.getName(),
-                        a.walks());
-            default:
-                break;
-        }
-        return new JLabel(f);
-
+        return new JLabel( JPet.getValidFlags(a,b).get(randVal) );
     }
 
     public static void main(String[] args) {

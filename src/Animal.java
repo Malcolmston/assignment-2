@@ -207,8 +207,9 @@ public abstract class Animal implements UserInfo {
 	}
 
 	@Override
-	public JPanel makeProfile() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'makeProfile'");
+	public JPanel makeProfile(Animal b) {
+		return new JPet(this, b);
 	}
+
+	protected abstract String getUrl();
 }
