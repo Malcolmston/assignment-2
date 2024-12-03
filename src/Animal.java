@@ -1,7 +1,6 @@
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import javax.swing.JPanel;
 
 /**
  * CMS270 Group Project
@@ -13,7 +12,7 @@ import javax.swing.JPanel;
  *          will be used to store different pets in an array together.
  */
 
-public abstract class Animal implements UserInfo {
+public abstract class Animal implements PopUpMgr {
 	// Data Members
 	private String name;
 	private String fullPath;
@@ -208,4 +207,17 @@ public abstract class Animal implements UserInfo {
 	}
 
 	protected abstract String getUrl();
+
+	@Override
+    public void show() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'show'");
+    }
+
+    @Override
+    public void hide() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'hide'");
+    }
+
 }

@@ -1,5 +1,4 @@
 
-import javax.swing.JPanel;
 
 /**
  * CMS270 Group Project
@@ -8,7 +7,7 @@ import javax.swing.JPanel;
  * 
  * @purpose To create User objects that hold account and pet information.
  */
-public class Account implements UserInfo {
+public class Account implements PopUpMgr {
     private String username;
     private Animal[] pets;
     private int numPets;
@@ -48,16 +47,16 @@ public class Account implements UserInfo {
     }
 
     @Override
-    public void changeName(String newName) {
+    public void show() {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'changeName'");
+        throw new UnsupportedOperationException("Unimplemented method 'show'");
     }
 
     @Override
-    public JPanel makeProfile() {
+    public void hide() {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'makeProfile'");
+        throw new UnsupportedOperationException("Unimplemented method 'hide'");
     }
 
-
+    
 }
