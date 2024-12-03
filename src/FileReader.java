@@ -180,20 +180,4 @@ public final class FileReader {
         return accounts;
 
     }
-
-    public static void main(String[] args) {
-        try (Scanner scanner = getScanner()) {
-
-                String[][] arr = readFile(scanner);
-
-
-               System.out.println( parse(arr) );
-            
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-
-    }
 }

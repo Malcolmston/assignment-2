@@ -11,7 +11,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
@@ -149,14 +148,4 @@ public class JPetCreator extends JPanel implements ActionListener, ItemListener 
             System.out.println( speciesField.getSelectedItem() );
         } 
     }
-
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("JPetCreator");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 400);
-
-        frame.add(new JPetCreator());
-        frame.setVisible(true);
-    }
-
 }

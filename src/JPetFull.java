@@ -73,10 +73,5 @@ public class JPetFull extends JPanel {
         JScrollPane scroll = new JScrollPane(topPanel);
 
         add(scroll);
-
-
-
-  
-
     }
 }
