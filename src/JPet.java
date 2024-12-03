@@ -1,9 +1,11 @@
 import java.awt.GridLayout;
 import java.util.ArrayList;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 
 public class JPet extends JPanel {
     private final JLabel lblName;
@@ -13,6 +15,9 @@ public class JPet extends JPanel {
     private final JLabel lblA;
     private final JLabel lblB;
     private final JLabel lblC;
+
+    private Border BORDER;
+
 
     private final JPanel panelA = new JPanel();
 
@@ -105,6 +110,10 @@ public class JPet extends JPanel {
 
         add(lbl);
         add(panelA);
+
+        BORDER = BorderFactory.createTitledBorder(petB.getName() + "'s Profile"); 
+
+        setBorder(BORDER);
     }
 
     public static void main(String[] args) {
