@@ -126,27 +126,27 @@ public abstract class Animal implements UserInfo {
 
 	
 	public String adventurous() {
-		return this.name + " " + (this.flags[0] ? "likes" : "dose not like") + " going on advetures.";
+		return this.name + " " + (this.flags[0] ? "likes" : "does not like") + " going on advetures.";
 	}
 
 	public String baths() {
-		return this.name + " " + (this.flags[1] ? "likes" : "dose not like") + " taking baths.";
+		return this.name + " " + (this.flags[1] ? "likes" : "does not like") + " taking baths.";
 	}
 
 	public String cars() {
-		return this.name + " " +(this.flags[2] ? "likes" : "dose not like") + " going on car rides.";
+		return this.name + " " +(this.flags[2] ? "likes" : "does not like") + " going on car rides.";
 	}
 
 	public String cosplay() {
-		return this.name + " " + (this.flags[3] ? "likes" : "dose not like") + " to cosplay.";
+		return this.name + " " + (this.flags[3] ? "likes" : "does not like") + " to cosplay.";
 	}
 
 	public String eating() {
-		return this.name + " " + (this.flags[4] ? "likes" : "dose not like") + " eating.";
+		return this.name + " " + (this.flags[4] ? "likes" : "does not like") + " eating.";
 	}
 
 	public String energy() {
-		return this.name + " " + (this.flags[5] ? "has" : "dose not have") + " lots of energy.";
+		return this.name + " " + (this.flags[5] ? "has" : "does not like") + " lots of energy.";
 	}
 
 	public String friendly() {
@@ -154,23 +154,23 @@ public abstract class Animal implements UserInfo {
 	}
 
 	public String running() {
-		return this.name + " " +(this.flags[7] ? "likes" : "dose not like") + " to run.";
+		return this.name + " " +(this.flags[7] ? "likes" : "does not like") + " to run.";
 	}
 
 	public String sleeping() {
-		return this.name + " " + (this.flags[8] ? "likes" : "dose not like") + " to sleep.";
+		return this.name + " " + (this.flags[8] ? "likes" : "does not like") + " to sleep.";
 	}
 
 	public String petting() {
-		return this.name + " " + (this.flags[9] ? "likes" : "dose not like") + " to be pet.";
+		return this.name + " " + (this.flags[9] ? "likes" : "does not like") + " to be pet.";
 	}
 
 	public String playing() {
-		return this.name + " " + (this.flags[10] ? "likes" : "dose not like") + " to play.";
+		return this.name + " " + (this.flags[10] ? "likes" : "does not like") + " to play.";
 	}
 
 	public String walks() {
-		return this.name + " " + (this.flags[11] ? "likes" : "dose not like") + " to go on walks.";
+		return this.name + " " + (this.flags[11] ? "likes" : "does not like") + " to go on walks.";
 	}
 
 	@Override
