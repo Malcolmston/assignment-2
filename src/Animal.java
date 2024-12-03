@@ -207,16 +207,5 @@ public abstract class Animal implements UserInfo {
 		return this.name + " " + (this.flags[11] ? "likes" : "does not like") + " to go on walks.";
 	}
 
-	@Override
-	public void changeName(String newName) {
-		this.name = newName;
-	}
-
-	@Override
-	    public JPanel makeProfile() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'makeProfile'");
-    }
-
 	protected abstract String getUrl();
 }
