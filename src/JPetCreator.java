@@ -30,6 +30,7 @@ public class JPetCreator extends JPanel implements ActionListener, ItemListener 
     private JTextField nameField; // name field takes a text input
 
     private final String[] SPECIES = new String[]{"Cat", "Dog", "Parrot", "Hamster", "Monster"}; 
+    private final String[] URLS = new String[]{"cat.jpeg", "dog.jpeg", "parrot.jpeg", "hamster.jpeg", "monster.jpeg"};
 
     private final JLabel SPECIES_TITLE = new JLabel("Species: ");
     private JComboBox<String> speciesField = new JComboBox<>(SPECIES); // this is like html <select>
@@ -49,6 +50,35 @@ public class JPetCreator extends JPanel implements ActionListener, ItemListener 
 
     private JButton button = new JButton("Enter");
 
+    private ImageIcon icon;
+
+    private JLabel image;
+
+
+    private Animal animal;
+
+    private CreateListener listener;
+
+
+    public void setCreateListener(CreateListener listener) {
+        this.listener = listener;
+    }
+
+    private void changeImg () {
+              // Get the selected index of the species
+              int selectedIndex = speciesField.getSelectedIndex();
+    
+              // Update the icon with the correct image
+              icon = createImageIcon(URLS[selectedIndex], 100, 100);
+      
+              // Update the JLabel with the new icon
+              image.setIcon(icon);
+
+              revalidate();
+            repaint();
+    }
+
+
     JPetCreator () {
         inputJPanel.add(NAME_TITLE);   
         nameField = new JTextField(10);
@@ -62,9 +92,9 @@ public class JPetCreator extends JPanel implements ActionListener, ItemListener 
 
         inputJPanel.setLayout(TOP_LAYOUT);
 
-        ImageIcon icon = createImageIcon("dog.jpeg", 100, 100);
+        icon = createImageIcon(URLS[0], 100, 100);
         
-        JLabel image = new JLabel(icon);
+        image = new JLabel(icon);
         add(image);
        
 
@@ -100,6 +130,8 @@ public class JPetCreator extends JPanel implements ActionListener, ItemListener 
         speciesField.addItemListener(this::itemStateChanged);
 
         add(button);
+
+        changeImg();
 
     }
 
@@ -139,13 +171,36 @@ public class JPetCreator extends JPanel implements ActionListener, ItemListener 
     @Override
     public final void actionPerformed(ActionEvent e) {
         System.out.println("Output");
+        // create a pet from the given data
+
+        String name = nameField.getText();
+        String species = (String) speciesField.getSelectedItem();
+        int age = (int) ageModel.getValue();
+ 
+        boolean[] flags = new boolean[12];
+
+        String url = URLS[speciesField.getSelectedIndex()];
+
+        for (int i = 0; i < flags.length; i++) {
+            flags[i] = checks.get(i).isSelected();
+        }
+
+        this.animal = new Cat(name, species, age, flags, url);
+
+        if (listener != null) {
+            listener.onClose(this.animal);
+        }
     }
 
     @Override
     public final void itemStateChanged(ItemEvent e) {
-         // if the state combobox 1is changed
-         if (e.getSource() == speciesField) {
-            System.out.println( speciesField.getSelectedItem() );
-        } 
+        if (e.getSource() == speciesField) {
+            changeImg();
+        }
     }
+    
+    public Animal getAnimal() {
+        return animal;
+    }
+
 }
