@@ -12,9 +12,9 @@ public class JPet extends JPanel {
     private final JLabel lblAge;
     private final JLabel lblGender;
 
-    private final JLabel lblA;
-    private final JLabel lblB;
-    private final JLabel lblC;
+    private JLabel lblA;
+    private JLabel lblB;
+    private JLabel lblC;
 
     private Border BORDER;
 
@@ -115,6 +115,37 @@ public class JPet extends JPanel {
 
         setBorder(BORDER);
     }
+
+    public JPet(Animal petA) {
+        super();
+
+        lblName = new JLabel(petA.getName());
+        lblAge = new JLabel("Age: " + petA.getAge());
+        lblGender = new JLabel("Gender: " + petA.getGender());
+
+        lblTitle = JPetCreator.createImageIcon(petA.getUrl(), 400, 400);
+
+        setLayout(new GridLayout(1, 2));
+
+        panelA.setLayout(new GridLayout(3, 1));
+
+
+        panelA.add(lblName);
+        panelA.add(lblAge);
+        panelA.add(lblGender);
+
+        JLabel lbl = new JLabel(lblTitle);
+
+        add(lbl);
+        add(panelA);
+
+        BORDER = BorderFactory.createTitledBorder(petA.getName() + "'s Profile"); 
+
+        setBorder(BORDER);
+
+    }
+
+    
 
     public static void main(String[] args) {
         boolean[] flags = {true, false, true, false, true, false, true, false, true, false, true, false};
