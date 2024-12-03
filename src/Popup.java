@@ -21,9 +21,6 @@ public class Popup extends JDialog {
 
     private CloseListener listener;
 
-    public interface CloseListener {
-        void onClose(boolean dicAge, boolean dicGender);
-    }
 
     public Popup() {
         // Set dialog properties
