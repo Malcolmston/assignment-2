@@ -14,7 +14,7 @@ public class Popup extends JPopupMenu {
     private CloseListener listener;
 
     public interface CloseListener {
-        void onClose();
+        void onClose(boolean dicAge, boolean dicGender);
     }
 
     public void setCloseListener(CloseListener listener) {
@@ -34,7 +34,7 @@ public class Popup extends JPopupMenu {
 
         closeBTN.addActionListener(e -> {
             if (listener != null) {
-                listener.onClose();
+                listener.onClose(dicAge, dicGender);
             }
         });
 
