@@ -1,9 +1,11 @@
 
+import java.awt.GridLayout;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 public class JPetFull extends JPanel {
     private static String[][] getFileOut () {
@@ -55,11 +57,26 @@ public class JPetFull extends JPanel {
 
         ArrayList<Animal> top = getTop(3, petIds);
 
+        JPet ypurJPet = new JPet(pet);
+
+        JPanel topPanel = new JPanel();
+
+        topPanel.setLayout(new GridLayout(4, 1));
+
+        topPanel.add(ypurJPet);
+
         top.forEach(x -> {
             JPet jpet = new JPet(pet, x);
-            add(jpet);
+            topPanel.add(jpet);
         } );
 
+        JScrollPane scroll = new JScrollPane(topPanel);
+
+        add(scroll);
+
+
+
+  
 
     }
 }
