@@ -1,5 +1,5 @@
 public class Monster extends Animal{
-	private static final String SPICIES = "Monster";
+	private static final String SPECIES = "Monster";
 	private String url;
 	
 	public Monster (String name, String gender, int age, boolean[] flags, String url) {
@@ -8,20 +8,20 @@ public class Monster extends Animal{
 	}
 	
 	public String getSpecies() {
-		return Monster.SPICIES;
+		return Monster.SPECIES;
 	}
 	
 	@Override
 	public String adventurous() {
-		return super.getName() + " "+ (this.getFlags()[0] ? "loves" : "dose not like") + "  exploring abandoned places.";
+		return super.getName() + " "+ (this.getFlags()[0] ? "loves" : "does not like") + " exploring abandoned places.";
 	}
 	@Override
 	public String running() {
-		return super.getName() + " " + (this.getFlags()[7] ? "loves" : "dose not like") + " chasing after people";
+		return super.getName() + " " + (this.getFlags()[7] ? "loves" : "does not like") + " chasing after people";
 	}
 	@Override
 	public String playing() {
-		return super.getName() + " " + (this.getFlags()[10] ? "loves" : "dose not like") +"  to play games like Hide-in-Seek.";
+		return super.getName() + " " + (this.getFlags()[10] ? "loves" : "does not like") +" to play games like Hide-in-Seek.";
 	}
 	
 	public String getUrl() {

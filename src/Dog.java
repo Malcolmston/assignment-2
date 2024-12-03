@@ -25,12 +25,12 @@ public class Dog extends Animal {
 
     @Override
     public String petting() {
-    	return super.getName() +" "+ (this.getFlags()[9] ? "loves" : "dose not like") + " belly rubs and likes to be pet by people";
+    	return super.getName() +" "+ (this.getFlags()[9] ? "loves" : "does not like") + " belly rubs and likes to be pet by people";
     }
 
     @Override
     public String playing() {
-    	return super.getName() + " " + (this.getFlags()[10] ? "likes" : "dose not like") + "to play fetch with sticks from outside";
+    	return super.getName() + " " + (this.getFlags()[10] ? "loves" : "does not like") + " to play fetch with sticks from outside";
     }
 
     public String getUrl() {

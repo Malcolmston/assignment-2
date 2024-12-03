@@ -11,7 +11,7 @@ public class Cat extends Animal {
   // getters
   @Override
   public String playing() {
-    return super.getName() + " " + (this.getFlags()[10] ? "likes" : "dose not like") + " to scratch up old boxes.";
+    return super.getName() + " " + (this.getFlags()[10] ? "likes" : "does not like") + " to scratch up old boxes.";
   }
 
   @Override
@@ -21,13 +21,12 @@ public class Cat extends Animal {
 
   @Override
   public String eating() {
-    return super.getName()
-        + (this.getFlags()[4] ? "loves eating more than anything in the world." : "dose not like eating");
+    return super.getName() + " " + (this.getFlags()[4] ? "loves eating more than anything in the world." : "does not like eating.");
   }
 
   @Override
   public String sleeping() {
-    return super.getName() + (this.getFlags()[8] ? "likes" : "dose not like") + " to nap around the house all day.";
+    return super.getName() + " " + (this.getFlags()[8] ? "likes" : "does not like") + " to nap around the house all day.";
   }
 
   public String getSpecies() {
