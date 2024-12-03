@@ -210,14 +210,9 @@ public abstract class Animal implements PopUpMgr {
 
 	@Override
     public void show() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'show'");
+        Popup p = new Popup(this);
+		p.setVisible(true);
     }
 
-    @Override
-    public void hide() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'hide'");
-    }
 
 }
