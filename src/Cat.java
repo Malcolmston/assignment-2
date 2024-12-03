@@ -21,13 +21,12 @@ public class Cat extends Animal {
 
   @Override
   public String eating() {
-    return super.getName()
-        + (this.getFlags()[4] ? "loves eating more than anything in the world." : "does not like eating");
+    return super.getName() + " " + (this.getFlags()[4] ? "loves eating more than anything in the world." : "does not like eating.");
   }
 
   @Override
   public String sleeping() {
-    return super.getName() + (this.getFlags()[8] ? "likes" : "does not like") + " to nap around the house all day.";
+    return super.getName() + " " + (this.getFlags()[8] ? "likes" : "does not like") + " to nap around the house all day.";
   }
 
   public String getSpecies() {
