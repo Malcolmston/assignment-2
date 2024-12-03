@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import javax.swing.JPanel;
 
 /**
@@ -104,7 +105,7 @@ public abstract class Animal implements UserInfo {
 	 * @return the number of points scored for base flag, age, type, etc...
 	 *         compatibility
 	 */
-	private static int compareOnePet(Animal a, Animal b, boolean discriminateAge, boolean discriminateGender) {
+	private static HashMap<String, Object> compareOnePet(Animal a, Animal b, boolean discriminateAge, boolean discriminateGender) {
 		int points = 0;
 
 		// add flag points
@@ -134,7 +135,12 @@ public abstract class Animal implements UserInfo {
 			}
 		}
 
-		return points;
+		HashMap<String, Object> out = new HashMap<>();
+
+		out.put("points", points);
+		out.put("pet", b);
+
+		return out;
 
 	}
 
@@ -145,8 +151,8 @@ public abstract class Animal implements UserInfo {
 	 * @param comparePet the pet userPet is being compared against
 	 * @return the number of points scored for base flag compatibility
 	 */
-	public static ArrayList<Integer> computeCompatibility(Animal userPet, boolean discriminateAge, boolean discriminateGender, ArrayList<Animal> animals) {
-		ArrayList<Integer> points = new ArrayList<>();
+	public static ArrayList< HashMap<String, Object> > computeCompatibility(Animal userPet, boolean discriminateAge, boolean discriminateGender, ArrayList<Animal> animals) {
+		ArrayList< HashMap<String, Object> > points = new ArrayList<>();
 		for (int i = 0; i < animals.size(); i++) {
 			points.add(compareOnePet(userPet, animals.get(i), discriminateAge, discriminateGender));
 		}
@@ -207,9 +213,10 @@ public abstract class Animal implements UserInfo {
 	}
 
 	@Override
-	public JPanel makeProfile(Animal b) {
-		return new JPet(this, b);
-	}
+	    public JPanel makeProfile() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'makeProfile'");
+    }
 
 	protected abstract String getUrl();
 }
