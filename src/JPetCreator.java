@@ -86,6 +86,8 @@ public class JPetCreator extends JPanel implements ActionListener, ItemListener 
 
         inputJPanel.add(GENDER_TITLE);
         genderField = new JTextField(10);
+        inputJPanel.add(genderField);
+
 
         inputJPanel.add(SPECIES_TITLE);
         inputJPanel.add(speciesField);
