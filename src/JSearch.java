@@ -14,13 +14,16 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 
 public class JSearch extends JPanel {
-    private JLabel searchLabel = new JLabel("Search: ");
-    private JTextField searchField = new JTextField(20);
-    private JButton searchButton = new JButton("Search");
+    private final JLabel searchLabel = new JLabel("Search: ");
+    private final JTextField searchField = new JTextField(20);
+    private final JButton searchButton = new JButton("Search");
 
     private String[][] data;
-    private String[] columnNames = {"Username", "Type", "Name", "Gender", "Age"};
-    private JTable table;
+    private final String[] columnNames = {"Username", "Type", "Name", "Gender", "Age"};
+    private final JTable table;
+
+    private final String[] opts = {"Show user", "Show only pets"};
+
 
     // Convert String[] to ArrayList<String>
     private ArrayList<String> getDataBetter(String[] inputData) {
@@ -144,7 +147,6 @@ public class JSearch extends JPanel {
 
                 switch (searchColumn) {
                     case 0 -> {
-                        String[] opts = {"Show user", "Show only pets"};
 
                         // Username column
                         Animal[] usernameAnimals = getMyAnimals(searchText);
