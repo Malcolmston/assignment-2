@@ -4,11 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class App {
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("JPetFull");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 600);
-
+    public static JPanel createPet () {
         CardLayout cardLayout = new CardLayout();
         JPanel mainPanel = new JPanel(cardLayout);
 
@@ -31,7 +27,17 @@ public class App {
             popup.setVisible(true);
         });
 
-        frame.add(mainPanel, BorderLayout.CENTER);
+        return mainPanel;
+    }
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("JPetFull");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(800, 600);
+
+  
+
+        frame.add( createPet() , BorderLayout.CENTER);
 
         frame.setVisible(true);
     }
