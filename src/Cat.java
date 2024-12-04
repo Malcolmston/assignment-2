@@ -33,6 +33,7 @@ public class Cat extends Animal {
     return Cat.SPECIES;
   }
 
+  @Override
   public String getUrl() {
 		return url;
 	}

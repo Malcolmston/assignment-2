@@ -23,6 +23,7 @@ public class Hamster extends Animal {
 		return super.getName() + " " +(this.getFlags()[7] ? "loves" : "does not like") + " running on the hamster wheel.";
 	}
 
+	@Override
 	public String getUrl() {
 		return url;
 	}

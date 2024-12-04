@@ -15,7 +15,7 @@ public class JPet extends JPanel {
     private JLabel lblB;
     private JLabel lblC;
 
-    private Border BORDER;
+    private final Border BORDER;
 
 
     private final JPanel panelA = new JPanel();

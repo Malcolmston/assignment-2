@@ -21,41 +21,41 @@ import javax.swing.border.Border;
 
 public class JPetCreator extends JPanel implements ActionListener, ItemListener {
     private final GridLayout TOP_LAYOUT = new GridLayout(4, 2);
-    private JPanel inputJPanel = new JPanel(); // this will hold all inputs
+    private final JPanel inputJPanel = new JPanel(); // this will hold all inputs
 
     private final GridLayout ATTR_LAYOUT;
 
     private final JLabel NAME_TITLE = new JLabel("Name: ");
-    private JTextField nameField; // name field takes a text input
+    private final JTextField nameField; // name field takes a text input
 
     private final String[] SPECIES = new String[] { "Cat", "Dog", "Hamster", "Monster" };
     private final String[] URLS = new String[] { "cat.jpeg", "dog.jpeg", "hamster.jpeg", "monster.jpeg" };
 
     private final JLabel SPECIES_TITLE = new JLabel("Species: ");
-    private JComboBox<String> speciesField = new JComboBox<>(SPECIES); // this is like html <select>
+    private final JComboBox<String> speciesField = new JComboBox<>(SPECIES); // this is like html <select>
 
     private final JLabel GENDER_TITLE = new JLabel("Gender: ");
-    private JTextField genderField; 
+    private final JTextField genderField; 
 
     // this creates a range for the age range, and controls the steps for the age
     // range
     private final SpinnerModel MODEL = new SpinnerNumberModel(0, 0, 999, 1);
 
     private final JLabel AGE_TITLE = new JLabel("Age: "); // age title label
-    private JSpinner ageModel = new JSpinner(MODEL); // this is like html <input type="number">
+    private final JSpinner ageModel = new JSpinner(MODEL); // this is like html <input type="number">
 
-    private JPanel attributes = new JPanel(); // this will hold all the checkboxes for a pets attributes
+    private final JPanel attributes = new JPanel(); // this will hold all the checkboxes for a pets attributes
 
-    private ArrayList<JCheckBox> checks = new ArrayList<>(); // will hold all the checkboxes for a pets attributes
+    private final ArrayList<JCheckBox> checks = new ArrayList<>(); // will hold all the checkboxes for a pets attributes
 
-    private Border BORDER = BorderFactory.createTitledBorder("Attributes"); // this creates a border around the
+    private final Border BORDER = BorderFactory.createTitledBorder("Attributes"); // this creates a border around the
                                                                             // checkboxes
 
-    private JButton button = new JButton("Enter");
+    private final JButton button = new JButton("Enter");
 
     private ImageIcon icon;
 
-    private JLabel image;
+    private final JLabel image;
 
     private Animal animal;
 

@@ -23,7 +23,6 @@ public class JPetFull extends JPanel {
         }
 
         ArrayList<Animal> allPets = getPets(arr);
-        ArrayList<Account> accounts = getAccounts(arr);
 
         ArrayList<HashMap<String, Object>> petIds = Animal.computeCompatibility(pet, dicAge, dicGender, allPets);
         ArrayList<Animal> top = getTop(3, petIds);
@@ -68,5 +67,21 @@ public class JPetFull extends JPanel {
             top.add((Animal) peList.get(i).get("pet"));
         }
         return top;
+    }
+
+    public void setDicGender(boolean dicGender) {
+        this.dicGender = dicGender;
+    }
+
+    public boolean isDicAge() {
+        return dicAge;
+    }
+
+    public void setDicAge(boolean dicAge) {
+        this.dicAge = dicAge;
+    }
+
+    public boolean isDicGender() {
+        return dicGender;
     }
 }

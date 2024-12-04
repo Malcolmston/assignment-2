@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -29,6 +28,8 @@ public class JSearch extends JPanel {
     private ArrayList<String> getDataBetter(String[] inputData) {
         return new ArrayList<>(Arrays.asList(inputData));
     }
+    // Additional method to convert Animal[] to ArrayList<Animal>
+
 
     // Convert String[][] to ArrayList<ArrayList<String>>
     private ArrayList<ArrayList<String>> getDataBetter(String[][] inputData) {
@@ -39,10 +40,7 @@ public class JSearch extends JPanel {
         return out;
     }
 
-    // Additional method to convert Animal[] to ArrayList<Animal>
-    private ArrayList<Animal> getDataBetter(Animal[] animals) {
-        return new ArrayList<>(Arrays.asList(animals));
-    }
+
 
     private void initData() {
         try (Scanner scanner = FileReader.getScanner()) {
@@ -164,16 +162,19 @@ public class JSearch extends JPanel {
 
 
 
-                                if(result == 0){
+                            switch (result) {
+                                case 0 -> {
                                     Account account = new Account(searchText, usernameAnimals.length, usernameAnimals);
                                     account.show();
-                                }else if (result == 1){
+                                }
+                                case 1 -> {
                                     ArrayList<Animal> als = new ArrayList<>(Arrays.asList(usernameAnimals) );
                                     Popup p = new Popup(als);
                                     p.setVisible(true);
-
-                                }else {
                                 }
+                                default -> {
+                                }
+                            }
 
                             
                         }
