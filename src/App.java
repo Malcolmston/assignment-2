@@ -1,16 +1,22 @@
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
 public class App {
     public static JPanel createPet() {
+
+
         CardLayout cardLayout = new CardLayout();
         JPanel mainPanel = new JPanel(cardLayout);
 
         JPetCreator jp = new JPetCreator();
         mainPanel.add(jp, "Creator");
+
+        JButton claButton = new JButton("Clear Result");
+
 
         jp.setCreateListener(pet -> {
             // Show Popup
@@ -24,13 +30,23 @@ public class App {
                 mainPanel.add(jpf, "Matches");
 
                 cardLayout.show(mainPanel, "Matches");
+
+                claButton.setVisible(true);
+
+
                 } else {
                     System.out.println("No pet selected.");
                 }
             });
 
-            popup.setVisible(true);
         });
+
+
+
+        claButton.addActionListener(e -> {
+            cardLayout.show(mainPanel, "Creator");
+        });
+
 
         return mainPanel;
     }
