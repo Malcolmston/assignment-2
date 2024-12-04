@@ -1,57 +1,56 @@
-
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 
-public class Popup extends JDialog {
-    JButton closeBTN = new JButton("Close");
+public class Popup extends JDialog implements ActionListener {
+    private JButton closeBTN = new JButton("Close");
 
-    public Popup (Account account) {   
+    public Popup(Account account) {
         setTitle("User: " + account.getUsername());
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-
-        setSize(300, 150);
-
+        initializeDialog();
+        
         JPanel m = new JUser(account);
-
-        setLayout( new GridLayout(2, 1));
-
-        add(m);
-
-        add(closeBTN);
-
+        setupLayout(m);
     }
 
-    public Popup (Animal animal) {
+    public Popup(Animal animal) {
         setTitle("Animal: " + animal.getName());
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-
-        setSize(300, 150);
-
+        initializeDialog();
+        
         JPanel m = new JPet(animal);
-
-        setLayout( new GridLayout(2, 1));
-
-        add(m);
-
-        add(closeBTN);
+        setupLayout(m);
     }
 
-    public Popup (ArrayList<Animal> animals) {
+    public Popup(ArrayList<Animal> animals) {
         setTitle("All Pets");
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-
-        setSize(300, 150);
-
+        initializeDialog();
+        
         JPanel m = new JAllPets(animals);
+        setupLayout(m);
+    }
 
-        setLayout( new GridLayout(2, 1));
+    private void initializeDialog() {
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setSize(300, 150);
+        setModal(true); // Make the dialog block input to other windows
+        setLocationRelativeTo(null); // Center the dialog on the screen
 
-        add(m);
+        // Add close button functionality
+        closeBTN.addActionListener(this::actionPerformed);
+    }
 
+    private void setupLayout(JPanel contentPanel) {
+        setLayout(new GridLayout(2, 1));
+        add(contentPanel);
         add(closeBTN);
     }
-    
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        dispose(); // Close the dialog
+    }
 }
