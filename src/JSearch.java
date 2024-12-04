@@ -31,7 +31,7 @@ public class JSearch extends JPanel {
     private ArrayList<ArrayList<String>> getDataBetter(String[][] inputData) {
         ArrayList<ArrayList<String>> out = new ArrayList<>();
         for (String[] row : inputData) {
-            out.add(new ArrayList<>(Arrays.asList(row)));
+            out.add(getDataBetter(row));
         }
         return out;
     }
