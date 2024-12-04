@@ -209,18 +209,25 @@ public class JPetCreator extends JPanel implements ActionListener, ItemListener 
                "Error", JOptionPane.ERROR_MESSAGE);
 
         } else {
-        this.animal = switch(species) {
-            case "cat" -> new Cat(name, gender, age, flags, url);
-            case "dog" -> new Dog(name, gender, age, flags, url);
-            case "hamster" -> new Hamster(name, gender, age, flags, url);
-            case "monster" -> new Monster(name, gender, age, flags, url);
-            default -> null;
-        };
-    }
+            System.out.println("Creating new pet: " + name + ", " + species + ", " + age + ", " + gender);
+
+            if( species.equalsIgnoreCase("cat") ) {
+                this.animal =  new Cat(name, gender, age, flags, url);
+            } else if ( species.equalsIgnoreCase("dog") ) {
+                this.animal =  new Dog(name, gender, age, flags, url);
+            } else if ( species.equalsIgnoreCase("hamster") ) {
+                this.animal =  new Hamster(name, gender, age, flags, url);
+            } else if ( species.equalsIgnoreCase("monster") ) {
+                this.animal =  new Monster(name, gender, age, flags, url);
+            } 
+
 
         if (listener != null) {
             listener.onClose(this.animal);
         }
+    }
+
+        
     }
 
     @Override
