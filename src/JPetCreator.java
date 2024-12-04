@@ -36,7 +36,9 @@ public class JPetCreator extends JPanel implements ActionListener, ItemListener 
     private final JComboBox<String> speciesField = new JComboBox<>(SPECIES); // this is like html <select>
 
     private final JLabel GENDER_TITLE = new JLabel("Gender: ");
-    private final JTextField genderField; 
+
+    private final String[] POS_GENDERS = {"Male", "Female"};
+    private final JComboBox<String> genderField = new JComboBox<>(POS_GENDERS);
 
     // this creates a range for the age range, and controls the steps for the age
     // range
@@ -86,7 +88,6 @@ public class JPetCreator extends JPanel implements ActionListener, ItemListener 
         inputJPanel.add(nameField);
 
         inputJPanel.add(GENDER_TITLE);
-        genderField = new JTextField(10);
         inputJPanel.add(genderField);
 
 
@@ -183,7 +184,7 @@ public class JPetCreator extends JPanel implements ActionListener, ItemListener 
         String name = nameField.getText();
         String species = (String) speciesField.getSelectedItem();
         int age = (int) ageModel.getValue();
-        String gender = (String) genderField.getText();
+        String gender = (String) genderField.getSelectedItem();
 
         boolean[] flags = new boolean[12];
 
