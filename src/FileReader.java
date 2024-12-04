@@ -63,7 +63,7 @@ public final class FileReader {
      * @param flags the string of 1s and 0s
      * @return a boolean array of the flags where 1 is true and 0 is false
      */
-    private static boolean[] parseFlags (String flags) {
+    public static boolean[] parseFlags (String flags) {
         boolean[] output = new boolean[12];
 
         String[] flagsArray = flags.split("");
