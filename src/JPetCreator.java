@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
@@ -188,10 +189,26 @@ public class JPetCreator extends JPanel implements ActionListener, ItemListener 
 
         String url = URLS[speciesField.getSelectedIndex()];
 
+
         for (int i = 0; i < flags.length; i++) {
             flags[i] = checks.get(i).isSelected();
         }
 
+        if( name.isEmpty() || name.trim().isEmpty() ) {
+            JOptionPane.showMessageDialog(this, "Please enter a pen name",
+               "Error", JOptionPane.ERROR_MESSAGE);
+               
+        } else if ( species.isEmpty() || species.trim().isEmpty() ) {
+            JOptionPane.showMessageDialog(this, "Please select a species",
+               "Error", JOptionPane.ERROR_MESSAGE);
+        } else if ( age < 0 ) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid age",
+               "Error", JOptionPane.ERROR_MESSAGE);
+        } else if ( gender.isEmpty() || gender.trim().isEmpty() ) {
+            JOptionPane.showMessageDialog(this, "Please select a gender",
+               "Error", JOptionPane.ERROR_MESSAGE);
+
+        } else {
         this.animal = switch(species) {
             case "cat" -> new Cat(name, gender, age, flags, url);
             case "dog" -> new Dog(name, gender, age, flags, url);
@@ -199,6 +216,7 @@ public class JPetCreator extends JPanel implements ActionListener, ItemListener 
             case "monster" -> new Monster(name, gender, age, flags, url);
             default -> null;
         };
+    }
 
         if (listener != null) {
             listener.onClose(this.animal);
