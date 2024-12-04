@@ -30,7 +30,7 @@ public class JPetCreator extends JPanel implements ActionListener, ItemListener 
     private final JTextField nameField; // name field takes a text input
 
     private final String[] SPECIES = new String[] { "Cat", "Dog", "Hamster", "Monster" };
-    private final String[] URLS = new String[] { "images/cat.jpeg", "images/Bobert.jpeg", "images/Bacon.jpeg", "images/Joe.jpeg" };
+    private final String[] URLS = new String[] { "images/che.jpg", "images/Bobert.jpeg", "images/Bacon.jpeg", "images/Joe.jpeg" };
 
     private final JLabel SPECIES_TITLE = new JLabel("Species: ");
     private final JComboBox<String> speciesField = new JComboBox<>(SPECIES); // this is like html <select>
