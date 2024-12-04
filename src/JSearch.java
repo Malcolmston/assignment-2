@@ -194,16 +194,4 @@ public class JSearch extends JPanel {
             }
         });
     }
-
-    public static void main(String[] args) {
-        // Use SwingUtilities for thread-safe Swing initialization
-        javax.swing.SwingUtilities.invokeLater(() -> {
-            JFrame frame = new JFrame("Search");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.add(new JSearch());
-            frame.pack();
-            frame.setLocationRelativeTo(null);
-            frame.setVisible(true);
-        });
-    }
 }
