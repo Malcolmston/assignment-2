@@ -144,22 +144,28 @@ public class JSearch extends JPanel {
 
                 switch (searchColumn) {
                     case 0 -> {
+                        String[] opts = {"Show user", "Show only pets"};
+
                         // Username column
                         Animal[] usernameAnimals = getMyAnimals(searchText);
                         if (usernameAnimals.length > 0) {
+                            int result = JOptionPane.showOptionDialog(
+                                this, // Parent component (replace 'this' with null if no parent)
+                                "Show User or Just show their pets", // Message
+                                "Swing Tester", // Title
+                                JOptionPane.YES_NO_OPTION, // Option type (you can use YES_NO_OPTION for simplicity)
+                                JOptionPane.QUESTION_MESSAGE, // Message type
+                                null, // Icon (null means no icon)
+                                opts, // Custom options
+                                opts[0] // Default option
+                            );
 
-                              int result = JOptionPane.showConfirmDialog(this,"Show User or Just show there pets", "Swing Tester",
-                                JOptionPane.YES_NO_OPTION,
-                                JOptionPane.QUESTION_MESSAGE,
-                                null);
 
 
-
-
-                                if(result == JOptionPane.YES_OPTION){
+                                if(result == 0){
                                     Account account = new Account(searchText, usernameAnimals.length, usernameAnimals);
                                     account.show();
-                                }else if (result == JOptionPane.NO_OPTION){
+                                }else if (result == 1){
                                     ArrayList<Animal> als = new ArrayList<>(Arrays.asList(usernameAnimals) );
                                     Popup p = new Popup(als);
                                     p.setVisible(true);
