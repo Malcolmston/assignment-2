@@ -7,7 +7,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 
 public class Popup extends JDialog implements ActionListener {
-    private JButton closeBTN = new JButton("Close");
+    private final JButton closeBTN = new JButton("Close");
 
     public Popup(Account account) {
         setTitle("User: " + account.getUsername());

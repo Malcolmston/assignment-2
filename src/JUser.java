@@ -5,9 +5,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class JUser extends JPanel {
-    private String username;
-    private int numPets;
-    private Animal[] animals;
+    private final String username;
+    private final int numPets;
+    private final Animal[] animals;
 
     private static ArrayList<Animal> toArrayList(Animal[] animals) {
         ArrayList<Animal> list = new ArrayList<>();
