@@ -45,7 +45,6 @@ public class App {
 
             frame.add(tabPanel, BorderLayout.CENTER);
 
-            frame.add(createPet(), BorderLayout.CENTER);
 
             frame.setVisible(true);
         });
