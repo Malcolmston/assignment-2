@@ -2,9 +2,10 @@ import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 
 public class App {
-    public static JPanel createPet () {
+    public static JPanel createPet() {
         CardLayout cardLayout = new CardLayout();
         JPanel mainPanel = new JPanel(cardLayout);
 
@@ -31,14 +32,22 @@ public class App {
     }
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("JPetFull");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 600);
+        javax.swing.SwingUtilities.invokeLater(() -> {
 
-  
+            JFrame frame = new JFrame("JPetFull");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setSize(800, 600);
 
-        frame.add( createPet() , BorderLayout.CENTER);
+            JTabbedPane tabPanel = new JTabbedPane();
 
-        frame.setVisible(true);
+            tabPanel.addTab("Create Pet", createPet());
+            tabPanel.addTab("Search Pet", new JSearch());
+
+            frame.add(tabPanel, BorderLayout.CENTER);
+
+            frame.add(createPet(), BorderLayout.CENTER);
+
+            frame.setVisible(true);
+        });
     }
 }
