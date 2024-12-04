@@ -18,11 +18,15 @@ public class App {
             popup.setCloseListener((dicAge, dicGender) -> {
                 System.out.println("DicAge: " + dicAge + ", DicGender: " + dicGender);
 
+                if( pet != null) {
                 JPetFull jpf = new JPetFull(pet, dicAge, dicGender);
 
                 mainPanel.add(jpf, "Matches");
 
                 cardLayout.show(mainPanel, "Matches");
+                } else {
+                    System.out.println("No pet selected.");
+                }
             });
 
             popup.setVisible(true);
