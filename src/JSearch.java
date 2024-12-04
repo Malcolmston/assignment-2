@@ -46,9 +46,9 @@ public class JSearch extends JPanel {
             data = FileReader.readFile(scanner);
 
             // replce any _ with a space
-            for (int i = 0; i < data.length; i++) {
-                for (int j = 0; j < data[i].length; j++) {
-                    data[i][j] = data[i][j].replace("_", " ");
+            for (String[] data1 : data) {
+                for (int j = 0; j < data1.length; j++) {
+                    data1[j] = data1[j].replace("_", " ");
                 }
             }
         } catch (FileNotFoundException e) {
