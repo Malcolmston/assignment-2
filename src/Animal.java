@@ -87,7 +87,7 @@ public abstract class Animal implements PopUpMgr {
 			boolean[] compareFlags = comparePet.getFlags();
 
 			if (userFlags[i] == compareFlags[i]) {
-				points += 1;
+				points += 2;
 			}
 		}
 		return points;
