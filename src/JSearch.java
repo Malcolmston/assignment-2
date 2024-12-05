@@ -12,6 +12,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
+/**
+ * CMS270 Group Project
+ * @version 1.0.0
+ * @authors Jarod Fuentes, Ava Kopchak, Alex Rynott, Malcolm Stone
+ * 
+ * @purpose 
+ */
+
 public class JSearch extends JPanel {
     private final JLabel searchLabel = new JLabel("Search: ");
     private final JTextField searchField = new JTextField(20);

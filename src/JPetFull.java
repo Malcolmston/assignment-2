@@ -6,6 +6,14 @@ import java.util.Scanner;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+/**
+ * CMS270 Group Project
+ * @version 1.0.0
+ * @authors Jarod Fuentes, Ava Kopchak, Alex Rynott, Malcolm Stone
+ * 
+ * @purpose 
+ */
+
 public class JPetFull extends JPanel {
     private boolean dicAge;
     private boolean dicGender;
