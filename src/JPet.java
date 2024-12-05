@@ -1,10 +1,12 @@
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
@@ -53,11 +55,12 @@ public class JPet extends JPanel {
             "are friendly",
             "enjoy running",
             "enjoy sleeping",
+            "enjoy getting pet",
             "enjoy playing",
             "enjoy walks"
         };
-    
-        for (int i = 1; i < Math.min(flagDescriptions.length, a.getFlags().length); i++) {
+
+        for (int i = 0; i < a.getFlags().length; i++) {
             if (a.getFlags()[i] && b.getFlags()[i]) {
                 String description = String.format(
                     "The pet %s and pet %s both %s.", 
@@ -95,6 +98,9 @@ JPet(Animal petA, Animal petB) {
 
         // Create a panel for pet details
         panelA.setLayout(new GridBagLayout());
+
+        System.out.println( Arrays.toString( petA.getFlags() ) );
+        System.out.println( Arrays.toString( petB.getFlags() ) );
 
         ArrayList<String> possibilities = getValidFlags(petA, petB);
 
@@ -145,9 +151,9 @@ JPet(Animal petA, Animal petB) {
             lblC.setForeground(Color.RED);
         } else {
             // Safely access indices based on available random indices
-            lblA = new JLabel(randomIndices.length > 0 ? possibilities.get(randomIndices[0]) : "No interest found");
-            lblB = new JLabel(randomIndices.length > 1 ? possibilities.get(randomIndices[1]) : "No interest found");
-            lblC = new JLabel(randomIndices.length > 2 ? possibilities.get(randomIndices[2]) : "No interest found");
+            lblA = new JLabel(randomIndices.length > 0 ? possibilities.get(randomIndices[0]) : "");
+            lblB = new JLabel(randomIndices.length > 1 ? possibilities.get(randomIndices[1]) : "");
+            lblC = new JLabel(randomIndices.length > 2 ? possibilities.get(randomIndices[2]) : "");
             
         }
 
@@ -205,71 +211,9 @@ JPet(Animal petA, Animal petB) {
 
         BORDER = BorderFactory.createTitledBorder(petA.getName() + "'s Profile");
         setBorder(BORDER);
+
+        setPreferredSize(new Dimension(400, 400));
     }
 
-    /*
-     * public JPet(Animal petA) {
-     * 
-     * super();
-     * 
-     * setLayout(new GridBagLayout());
-     * GridBagConstraints gbc = new GridBagConstraints();
-     * 
-     * gbc.insets = new Insets(5, 5, 5, 5);
-     * gbc.fill = GridBagConstraints.HORIZONTAL;
-     * gbc.weightx = 1.0;
-     * 
-     * 
-     * lblName = new JLabel(petA.getName());
-     * 
-     * lblName.setFont(new Font("Arial", Font.PLAIN, 20));
-     * 
-     * gbc.gridx = 1;
-     * gbc.gridy = 1;
-     * gbc.gridwidth = 2;
-     * 
-     * panelA.add(lblName);
-     * 
-     * 
-     * lblAge = new JLabel("Age: " + petA.getAge());
-     * 
-     * lblAge.setFont(new Font("Arial", Font.PLAIN, 18));
-     * 
-     * 
-     * gbc.gridx = 1;
-     * gbc.gridy = 2;
-     * gbc.gridwidth = 2;
-     * 
-     * panelA.add(lblAge);
-     * 
-     * 
-     * 
-     * lblGender = new JLabel("Gender: " + petA.getGender());
-     * 
-     * lblGender.setFont(new Font("Arial", Font.PLAIN, 18));
-     * 
-     * gbc.gridx = 1;
-     * gbc.gridy = 3;
-     * gbc.gridwidth = 2;
-     * 
-     * panelA.add(lblGender);
-     * 
-     * lblTitle = JPetCreator.createImageIcon(petA.getUrl(), 100, 100);
-     * 
-     * JLabel lbl = new JLabel(lblTitle);
-     * 
-     * gbc.gridx = 0;
-     * gbc.gridy = 1;
-     * gbc.gridwidth = 5;
-     * 
-     * add(lbl);
-     * 
-     * 
-     * add(panelA);
-     * 
-     * BORDER = BorderFactory.createTitledBorder(petA.getName() + "'s Profile");
-     * 
-     * setBorder(BORDER);
-     * }
-     */
+
 }
