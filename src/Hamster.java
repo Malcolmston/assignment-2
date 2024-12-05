@@ -1,3 +1,10 @@
+/**
+ * CMS270 Group Project
+ * @version 1.0.0
+ * @authors Jarod Fuentes, Ava Kopchak, Alex Rynott, Malcolm Stone
+ * 
+ * @purpose Animal subclass to specify Hamster behaviors
+ */
 public class Hamster extends Animal {
 	
 	private static final String SPECIES = "Hamster";

@@ -1,3 +1,10 @@
+/**
+ * CMS270 Group Project
+ * @version 1.0.0
+ * @authors Jarod Fuentes, Ava Kopchak, Alex Rynott, Malcolm Stone
+ * 
+ * @purpose Animal subclass to specify Monster behaviors
+ */
 public class Monster extends Animal{
 	private static final String SPECIES = "Monster";
 	private String url;

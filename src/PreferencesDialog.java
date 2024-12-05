@@ -6,6 +6,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 
+/**
+ * CMS270 Group Project
+ * @version 1.0.0
+ * @authors Jarod Fuentes, Ava Kopchak, Alex Rynott, Malcolm Stone
+ * 
+ * @purpose Controls discriminating preferences pop-up, allowing the user
+ * to be more selective about potential playmates.
+ */
+
 public class PreferencesDialog extends JDialog {
     private boolean dicAge = true;
     private boolean dicGender = true;

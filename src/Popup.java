@@ -6,6 +6,14 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 
+/**
+ * CMS270 Group Project
+ * @version 1.0.0
+ * @authors Jarod Fuentes, Ava Kopchak, Alex Rynott, Malcolm Stone
+ * 
+ * @purpose Creates user-interactable GUI pop-ups.
+ */
+
 public class Popup extends JDialog implements ActionListener {
     private final JButton closeBTN = new JButton("Close");
 
