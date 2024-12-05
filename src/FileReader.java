@@ -4,6 +4,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * CMS270 Group Project
+ * @version 1.0.0
+ * @authors Jarod Fuentes, Ava Kopchak, Alex Rynott, Malcolm Stone
+ * 
+ * @purpose To scan through an info.txt data file in order to collect, 
+ * organize, and return data about Accounts and Pets.
+ */
+
 public final class FileReader {
     private static final String FILE_NAME = "info.txt";
     
