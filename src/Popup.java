@@ -35,7 +35,7 @@ public class Popup extends JDialog implements ActionListener {
 
     private void initializeDialog() {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setSize(300, 150);
+        setSize(500, 500);
         setModal(true); // Make the dialog block input to other windows
         setLocationRelativeTo(null); // Center the dialog on the screen
 
