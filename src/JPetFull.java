@@ -28,7 +28,7 @@ public class JPetFull extends JPanel {
         ArrayList<Animal> top = getTop(3, petIds);
 
         JPet yourJPet = new JPet(pet);
-        JPanel topPanel = new JPanel(new GridLayout(0, 1));
+        JPanel topPanel = new JPanel();
 
         topPanel.add(yourJPet);
 
