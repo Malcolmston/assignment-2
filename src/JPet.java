@@ -1,5 +1,14 @@
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Insets;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
+import java.util.prefs.BackingStoreException;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -17,130 +26,242 @@ public class JPet extends JPanel {
 
     private final Border BORDER;
 
-
     private final JPanel panelA = new JPanel();
 
     private final ImageIcon lblTitle;
 
+    // Consistent font sizing and styling
+    private final Font labelFont = new Font("Arial", Font.PLAIN, 12);
+
     private static ArrayList<String> getValidFlags(Animal a, Animal b) {
         ArrayList<String> validFlags = new ArrayList<>();
-
-        for (int i = 0; i < a.getFlags().length; i++) {
+        String[] flagDescriptions = {
+            "adventurous",
+            "enjoy baths",
+            "enjoy car rides", 
+            "enjoy cosplay",
+            "enjoy eating",
+            "have high energy",
+            "are friendly",
+            "enjoy running",
+            "enjoy sleeping",
+            "enjoy playing",
+            "enjoy walks"
+        };
+    
+        for (int i = 1; i < Math.min(flagDescriptions.length, a.getFlags().length); i++) {
             if (a.getFlags()[i] && b.getFlags()[i]) {
-                String description = switch (i) {
-                    case 1 -> String.format("The pet %s and pet %s both enjoy being adventurous.", a.getName(), b.getName());
-                    case 2 -> String.format("The pet %s and pet %s both enjoy baths.", a.getName(), b.getName());
-                    case 3 -> String.format("The pet %s and pet %s both enjoy car rides.", a.getName(), b.getName());
-                    case 4 -> String.format("The pet %s and pet %s both enjoy cosplay.", a.getName(), b.getName());
-                    case 5 -> String.format("The pet %s and pet %s both enjoy eating.", a.getName(), b.getName());
-                    case 6 -> String.format("The pet %s and pet %s both have high energy.", a.getName(), b.getName());
-                    case 7 -> String.format("The pet %s and pet %s both are friendly.", a.getName(), b.getName());
-                    case 8 -> String.format("The pet %s and pet %s both enjoy running.", a.getName(), b.getName());
-                    case 9 -> String.format("The pet %s and pet %s both enjoy sleeping.", a.getName(), b.getName());
-                    case 10 -> String.format("The pet %s and pet %s both enjoy playing.", a.getName(), b.getName());
-                    case 11 -> String.format("The pet %s and pet %s both enjoy walks.", a.getName(), b.getName());
-                    default -> "";
-                };
+                String description = String.format(
+                    "The pet %s and pet %s both %s.", 
+                    a.getName(), 
+                    b.getName(), 
+                    flagDescriptions[i]
+                );
                 validFlags.add(description);
             }
         }
-
         return validFlags;
     }
-
-    public static int[] generateUniqueRandomInts(int min, int max, int size) {
-        if (max - min + 1 < size || size < 1) {
-            throw new IllegalArgumentException("Invalid range or size for unique numbers.");
-        }
-    
-        int[] result = new int[size];
-        int count = 0;
-    
-        while (count < size) {
-            int randomNum = (int) (Math.random() * (max - min + 1)) + min;
-    
-            // Check if the number is already in the result array
-            boolean isDuplicate = false;
-            for (int i = 0; i < count; i++) {
-                if (result[i] == randomNum) {
-                    isDuplicate = true;
-                    break;
-                }
-            }
-    
-            // Add the number if it's not a duplicate
-            if (!isDuplicate) {
-                result[count++] = randomNum;
-            }
-        }
-    
-        return result;
+public static int[] generateUniqueRandomInts(int min, int max, int count) {
+    if (count > (max - min + 1)) {
+        throw new IllegalArgumentException("Cannot generate more unique integers than available range");
     }
     
-    JPet(Animal petA, Animal petB) {
+    Random random = new Random();
+    Set<Integer> uniqueIndices = new HashSet<>();
+    
+    while (uniqueIndices.size() < count) {
+        int randomIndex = random.nextInt(max - min + 1) + min;
+        uniqueIndices.add(randomIndex);
+    }
+    
+    return uniqueIndices.stream().mapToInt(Integer::intValue).toArray();
+}
+   
+JPet(Animal petA, Animal petB) {
         super();
 
-        lblName = new JLabel(petB.getName());
-        lblAge = new JLabel("Age: " + petB.getAge());
-        lblGender = new JLabel("Gender: " + petB.getGender());
+        setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(5, 5, 5, 5);
 
-        lblTitle = JPetCreator.createImageIcon(petB.getUrl(), 400, 400);
-
-        setLayout(new GridLayout(1, 2));
+        // Create a panel for pet details
+        panelA.setLayout(new GridBagLayout());
 
         ArrayList<String> possibilities = getValidFlags(petA, petB);
-        int[] randomIndices = generateUniqueRandomInts(0, possibilities.size() - 1, Math.min(3, possibilities.size()));
 
-        lblA = randomIndices.length > 0 ? new JLabel(possibilities.get(randomIndices[0])) : new JLabel("No common interests");
-        lblB = randomIndices.length > 1 ? new JLabel(possibilities.get(randomIndices[1])) : new JLabel("");
-        lblC = randomIndices.length > 2 ? new JLabel(possibilities.get(randomIndices[2])) : new JLabel("");
+        System.out.println(possibilities.size());
+
+
+        int[] randomIndices;
+        if (possibilities.isEmpty()) {
+            randomIndices = new int[0]; // No indices if no possibilities
+        } else {
+            int numIndices = Math.min(3, possibilities.size());
+            randomIndices = generateUniqueRandomInts(0, possibilities.size() - 1, numIndices);
+        }
+
 
         panelA.setLayout(new GridLayout(6, 1));
 
-        panelA.add(lblName);
-        panelA.add(lblAge);
-        panelA.add(lblGender);
+        // Name Label
+        lblName = new JLabel(petB.getName());
+        lblName.setFont(new Font("Arial", Font.BOLD, 20));
+        gbc.gridx = 5;
+        gbc.gridy = 1;
+        gbc.gridwidth = 2;
+        panelA.add(lblName, gbc);
+
+        // Age Label
+        lblAge = new JLabel("Age: " + petB.getAge());
+        lblAge.setFont(labelFont);
+        gbc.gridy = 2;
+        panelA.add(lblAge, gbc);
+
+        // Gender Label
+        lblGender = new JLabel("Gender: " + petB.getGender());
+        lblGender.setFont(labelFont);
+
+        gbc.gridy = 3;
+        panelA.add(lblGender, gbc);
+
+        lblTitle = JPetCreator.createImageIcon(petB.getUrl(), 250, 250);
+        JLabel lbl = new JLabel(lblTitle);
+
+        if (randomIndices.length == 0) {
+            lblA = new JLabel("No interests found");
+            lblA.setForeground(Color.RED);
+            lblB = new JLabel("No interests found");
+            lblB.setForeground(Color.RED);
+            lblC = new JLabel("No interests found");
+            lblC.setForeground(Color.RED);
+        } else {
+            // Safely access indices based on available random indices
+            lblA = new JLabel(randomIndices.length > 0 ? possibilities.get(randomIndices[0]) : "No interest found");
+            lblB = new JLabel(randomIndices.length > 1 ? possibilities.get(randomIndices[1]) : "No interest found");
+            lblC = new JLabel(randomIndices.length > 2 ? possibilities.get(randomIndices[2]) : "No interest found");
+            
+        }
 
         panelA.add(lblA);
         panelA.add(lblB);
         panelA.add(lblC);
 
-        JLabel lbl = new JLabel(lblTitle);
-
         add(lbl);
         add(panelA);
 
-        BORDER = BorderFactory.createTitledBorder(petB.getName() + "'s Profile"); 
+        BORDER = BorderFactory.createTitledBorder(petB.getName() + "'s Profile");
 
         setBorder(BORDER);
     }
 
     public JPet(Animal petA) {
         super();
+        setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(5, 5, 5, 5);
 
+        // Create a panel for pet details
+        panelA.setLayout(new GridBagLayout());
+
+        // Name Label
         lblName = new JLabel(petA.getName());
+        lblName.setFont(new Font("Arial", Font.BOLD, 20));
+        gbc.gridx = 5;
+        gbc.gridy = 1;
+        gbc.gridwidth = 2;
+        panelA.add(lblName, gbc);
+
+        // Age Label
         lblAge = new JLabel("Age: " + petA.getAge());
+        lblAge.setFont(labelFont);
+        gbc.gridy = 2;
+        panelA.add(lblAge, gbc);
+
+        // Gender Label
         lblGender = new JLabel("Gender: " + petA.getGender());
+        lblGender.setFont(labelFont);
 
-        lblTitle = JPetCreator.createImageIcon(petA.getUrl(), 400, 400);
+        gbc.gridy = 3;
+        panelA.add(lblGender, gbc);
 
-        setLayout(new GridLayout(1, 2));
+        // Image Label
+        lblTitle = JPetCreator.createImageIcon(petA.getUrl(), 200, 200);
+        JLabel lblImage = new JLabel(lblTitle);
+        add(lblImage, gbc);
 
-        panelA.setLayout(new GridLayout(3, 1));
+        // Reset constraints for details panel
+        gbc.gridx = 1;
+        gbc.gridheight = 1;
+        add(panelA, gbc);
 
-
-        panelA.add(lblName);
-        panelA.add(lblAge);
-        panelA.add(lblGender);
-
-        JLabel lbl = new JLabel(lblTitle);
-
-        add(lbl);
-        add(panelA);
-
-        BORDER = BorderFactory.createTitledBorder(petA.getName() + "'s Profile"); 
-
+        BORDER = BorderFactory.createTitledBorder(petA.getName() + "'s Profile");
         setBorder(BORDER);
-
     }
+
+    /*
+     * public JPet(Animal petA) {
+     * 
+     * super();
+     * 
+     * setLayout(new GridBagLayout());
+     * GridBagConstraints gbc = new GridBagConstraints();
+     * 
+     * gbc.insets = new Insets(5, 5, 5, 5);
+     * gbc.fill = GridBagConstraints.HORIZONTAL;
+     * gbc.weightx = 1.0;
+     * 
+     * 
+     * lblName = new JLabel(petA.getName());
+     * 
+     * lblName.setFont(new Font("Arial", Font.PLAIN, 20));
+     * 
+     * gbc.gridx = 1;
+     * gbc.gridy = 1;
+     * gbc.gridwidth = 2;
+     * 
+     * panelA.add(lblName);
+     * 
+     * 
+     * lblAge = new JLabel("Age: " + petA.getAge());
+     * 
+     * lblAge.setFont(new Font("Arial", Font.PLAIN, 18));
+     * 
+     * 
+     * gbc.gridx = 1;
+     * gbc.gridy = 2;
+     * gbc.gridwidth = 2;
+     * 
+     * panelA.add(lblAge);
+     * 
+     * 
+     * 
+     * lblGender = new JLabel("Gender: " + petA.getGender());
+     * 
+     * lblGender.setFont(new Font("Arial", Font.PLAIN, 18));
+     * 
+     * gbc.gridx = 1;
+     * gbc.gridy = 3;
+     * gbc.gridwidth = 2;
+     * 
+     * panelA.add(lblGender);
+     * 
+     * lblTitle = JPetCreator.createImageIcon(petA.getUrl(), 100, 100);
+     * 
+     * JLabel lbl = new JLabel(lblTitle);
+     * 
+     * gbc.gridx = 0;
+     * gbc.gridy = 1;
+     * gbc.gridwidth = 5;
+     * 
+     * add(lbl);
+     * 
+     * 
+     * add(panelA);
+     * 
+     * BORDER = BorderFactory.createTitledBorder(petA.getName() + "'s Profile");
+     * 
+     * setBorder(BORDER);
+     * }
+     */
 }
