@@ -32,12 +32,12 @@ public class App {
                 cardLayout.show(mainPanel, "Matches");
 
                 claButton.setVisible(true);
-
-
                 } else {
                     System.out.println("No pet selected.");
                 }
             });
+            
+            popup.setVisible(true);
 
         });
 
