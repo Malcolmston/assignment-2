@@ -1,3 +1,4 @@
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -36,7 +37,7 @@ public class JPetFull extends JPanel {
         ArrayList<Animal> top = getTop(3, petIds);
 
         JPet yourJPet = new JPet(pet);
-        JPanel topPanel = new JPanel();
+        JPanel topPanel = new JPanel(new GridLayout(0, 1));
 
         topPanel.add(yourJPet);
 
@@ -46,7 +47,12 @@ public class JPetFull extends JPanel {
         });
 
         JScrollPane scroll = new JScrollPane(topPanel);
+        scroll.setPreferredSize(new Dimension(600, 500));
+        scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         add(scroll);
+
+        
     }
 
 
