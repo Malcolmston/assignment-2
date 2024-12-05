@@ -3,7 +3,7 @@
  * @version 1.0.0
  * @authors Jarod Fuentes, Ava Kopchak, Alex Rynott, Malcolm Stone
  * 
- * @purpose Animal subclass to define Cat
+ * @purpose Animal subclass to specify Cat behaviors
  */
 public class Cat extends Animal {
   private static final String SPECIES = "Cat";
