@@ -4,6 +4,14 @@ import java.util.Arrays;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * CMS270 Group Project
+ * @version 1.0.0
+ * @authors Jarod Fuentes, Ava Kopchak, Alex Rynott, Malcolm Stone
+ * 
+ * @purpose 
+ */
+
 public class JUser extends JPanel {
     private final String username;
     private final int numPets;
