@@ -137,7 +137,7 @@ public class JSearch extends JPanel {
         add(scrollPane);
 
         // Add search functionality
-        searchButton.addActionListener(e -> {
+        searchButton.addActionListener(_ -> {
             String searchText = searchField.getText().trim();
 
             if (!searchText.isEmpty()) {
