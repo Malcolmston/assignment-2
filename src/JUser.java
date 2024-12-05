@@ -15,7 +15,7 @@ import javax.swing.JScrollPane;
  * @version 1.0.0
  * @authors Jarod Fuentes, Ava Kopchak, Alex Rynott, Malcolm Stone
  * 
- * @purpose
+ * @purpose create the panel to show account information
  */
 
 public class JUser extends JPanel {

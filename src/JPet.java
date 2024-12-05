@@ -22,7 +22,7 @@ import javax.swing.border.Border;
  * @version 1.0.0
  * @authors Jarod Fuentes, Ava Kopchak, Alex Rynott, Malcolm Stone
  * 
- * @purpose 
+ * @purpose create a panel of witch a pet is compared to 3 other pets and is displayed for users to arrange a date
  */
 
 public class JPet extends JPanel {

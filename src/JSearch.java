@@ -17,7 +17,7 @@ import javax.swing.JTextField;
  * @version 1.0.0
  * @authors Jarod Fuentes, Ava Kopchak, Alex Rynott, Malcolm Stone
  * 
- * @purpose 
+ * @purpose allows users to search thrugh the given file, filtering out pets or account by name (account name or pet name)
  */
 
 public class JSearch extends JPanel {

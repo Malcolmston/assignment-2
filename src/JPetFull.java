@@ -12,7 +12,7 @@ import javax.swing.JScrollPane;
  * @version 1.0.0
  * @authors Jarod Fuentes, Ava Kopchak, Alex Rynott, Malcolm Stone
  * 
- * @purpose 
+ * @purpose shws the full list of pets that are matcable to other pets. This panel will show the top 3 pets that are compatible
  */
 
 public class JPetFull extends JPanel {

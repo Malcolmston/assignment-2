@@ -25,7 +25,7 @@ import javax.swing.border.Border;
  * @version 1.0.0
  * @authors Jarod Fuentes, Ava Kopchak, Alex Rynott, Malcolm Stone
  * 
- * @purpose 
+ * @purpose a jpanel to allow users to create pets. This panel will take the newly created pet and handle events allowing the code to be interacted with via event handles
  */
 
 public class JPetCreator extends JPanel implements ActionListener, ItemListener {
