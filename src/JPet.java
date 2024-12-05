@@ -6,6 +6,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
+/**
+ * CMS270 Group Project
+ * @version 1.0.0
+ * @authors Jarod Fuentes, Ava Kopchak, Alex Rynott, Malcolm Stone
+ * 
+ * @purpose 
+ */
+
 public class JPet extends JPanel {
     private final JLabel lblName;
     private final JLabel lblAge;
