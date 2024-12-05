@@ -34,11 +34,15 @@ public class App {
                 if( pet != null) {
                 JPetFull jpf = new JPetFull(pet, dicAge, dicGender);
 
+                jpf.add(claButton);
+
+
                 mainPanel.add(jpf, "Matches");
 
                 cardLayout.show(mainPanel, "Matches");
 
                 claButton.setVisible(true);
+
                 } else {
                     System.out.println("No pet selected.");
                 }
