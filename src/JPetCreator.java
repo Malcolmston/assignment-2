@@ -20,6 +20,14 @@ import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.border.Border;
 
+/**
+ * CMS270 Group Project
+ * @version 1.0.0
+ * @authors Jarod Fuentes, Ava Kopchak, Alex Rynott, Malcolm Stone
+ * 
+ * @purpose 
+ */
+
 public class JPetCreator extends JPanel implements ActionListener, ItemListener {
     private final GridLayout TOP_LAYOUT = new GridLayout(4, 2);
     private final JPanel inputJPanel = new JPanel(); // this will hold all inputs
