@@ -1,4 +1,10 @@
-
+/**
+ * CMS270 Group Project
+ * @version 1.0.0
+ * @authors Jarod Fuentes, Ava Kopchak, Alex Rynott, Malcolm Stone
+ * 
+ * @purpose Animal subclass to specify Dog behaviors
+ */
 public class Dog extends Animal {
 	public static final String SPECIES = "Dog";
     private String url;
