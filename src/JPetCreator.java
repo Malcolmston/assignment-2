@@ -73,8 +73,7 @@ public class JPetCreator extends JPanel implements ActionListener, ItemListener 
         int selectedIndex = speciesField.getSelectedIndex();
 
         // Update the icon with the correct image
-        icon = createImageIcon(URLS[selectedIndex], 100, 100);
-
+        icon = createImageIcon(URLS[selectedIndex], 250, 250);
         // Update the JLabel with the new icon
         image.setIcon(icon);
 
@@ -221,6 +220,7 @@ public class JPetCreator extends JPanel implements ActionListener, ItemListener 
             } else if ( species.equalsIgnoreCase("monster") ) {
                 this.animal =  new Monster(name, gender, age, flags, url);
             } 
+            
 
 
         if (listener != null) {
@@ -241,5 +241,8 @@ public class JPetCreator extends JPanel implements ActionListener, ItemListener 
     public Animal getAnimal() {
         return animal;
     }
+
+
+    
 
 }
